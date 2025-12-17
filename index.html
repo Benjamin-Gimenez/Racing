@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
-		<title>Welcome - Benjamin Gimenez</title> <meta charset="utf-8" />
+		<title>Welcome - Benjamin Gimenez</title>
+		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
@@ -10,15 +11,18 @@
 				background-image: none !important;
 				color: #ffffff !important;
 			}
-			/* Punto 2: Logo Flotante */
+
+			/* Punto 4: Logo Flotante Gigante */
 			.floating-logo {
 				position: fixed;
-				bottom: 20px;
-				right: 20px;
-				width: 100px; /* Ajusta según el tamaño de tu logo */
+				bottom: 30px;
+				right: 30px;
+				width: 250px; /* Mucho más grande */
 				z-index: 9999;
+				filter: drop-shadow(0 0 10px rgba(255,0,0,0.3));
 			}
-			/* Punto 3: Texto sobre Video */
+
+			/* Punto 1: Texto sobre Video GIGANTE */
 			.video-overlay-text {
 				position: absolute;
 				left: 5%;
@@ -27,77 +31,97 @@
 				color: #ff0000;
 				z-index: 2;
 				text-align: left;
-				max-width: 40%;
+				width: 70%; /* Ocupa el 70% de la pantalla */
 			}
 			.video-overlay-text h2 {
-				font-size: 3.5rem;
-				line-height: 1.1;
+				font-size: clamp(3rem, 8vw, 6rem); /* Tamaño dinámico muy grande */
+				line-height: 0.9;
 				font-weight: 900;
 				color: #ff0000 !important;
-				margin-bottom: 10px;
+				margin-bottom: 20px;
 				text-transform: uppercase;
 			}
 			.video-overlay-text p {
-				font-size: 1.2rem;
+				font-size: 1.5rem;
 				color: #ff0000 !important;
 				font-weight: 600;
+				letter-spacing: 2px;
 			}
-			/* Punto 1: Presentación con imagen de fondo */
+
+			/* Punto 2 y 3: Presentación con imagen de fondo corregida */
 			.about-section {
-				background: url('images/tu-foto-fondo.jpg') no-repeat center right;
+				position: relative;
+				background: url('images/presentacion.jpg') no-repeat center center;
 				background-size: cover;
-				padding: 100px 0;
+				min-height: 100vh;
 				display: flex;
-				justify-content: flex-start;
+				align-items: center;
 			}
 			.about-content {
-				background: rgba(0,0,0,0.7);
-				padding: 40px;
-				max-width: 500px;
+				background: rgba(0,0,0,0.8);
+				padding: 60px;
+				max-width: 650px;
 				margin-left: 5%;
+				border-left: 5px solid #ff0000;
 			}
-			/* Punto 5: Línea roja con texto deslizante */
+			.about-content h2 {
+				color: #ffffff !important; /* Punto 2: Blanco */
+				font-size: 4rem;
+				margin-bottom: 40px; /* Separación del texto */
+				font-weight: 900;
+			}
+
+			/* Punto 5: Texto de Martin Videla GIGANTE y por líneas */
+			.quote-section h2 {
+				font-size: clamp(2.5rem, 6vw, 5rem) !important;
+				line-height: 1.1;
+				font-weight: 900;
+				max-width: 900px;
+				margin: 0 auto;
+				text-transform: uppercase;
+			}
+
+			/* Punto 7: Línea roja deslizante corregida */
 			.marquee-separator {
 				background-color: #ff0000;
 				color: white;
-				padding: 10px 0;
+				padding: 15px 0;
 				overflow: hidden;
 				white-space: nowrap;
+				font-size: 1.5rem;
 			}
 			.marquee-text {
 				display: inline-block;
-				padding-left: 100%;
-				animation: marquee 15s linear infinite;
-				font-weight: bold;
+				animation: marquee 10s linear infinite;
+				font-weight: 900;
 				text-transform: uppercase;
 			}
 			@keyframes marquee {
-				0% { transform: translate(0, 0); }
-				100% { transform: translate(-100%, 0); }
+				from { transform: translateX(0); }
+				to { transform: translateX(-50%); }
 			}
+
 			/* Punto 7: Nombre lateral */
 			.side-name {
 				color: #ff0000 !important;
-				font-size: 5rem;
+				font-size: 8rem;
 				font-weight: 900;
-				line-height: 0.9;
-				text-align: left;
-				text-transform: uppercase;
-				margin: 50px 0;
+				line-height: 0.8;
+				margin: 100px 0;
 			}
 		</style>
 	</head>
 	<body class="is-preload">
 
-		<img src="images/tu-logo.png" class="floating-logo" alt="Logo">
+		<img src="images/logo.png" class="floating-logo" alt="Logo">
 
-		<section id="hero-header" style="position: relative; height: 100vh; width: 100%; overflow: hidden; background: #000;">
+		<section id="hero-header" style="position: relative; height: 100vh; width: 100%; overflow: hidden;">
 			<video autoplay muted loop playsinline style="position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: 0; transform: translate(-50%, -50%); object-fit: cover;">
 				<source src="images/fondo.mp4" type="video/mp4">
 			</video>
 			<div class="video-overlay-text">
 				<h2>Eyes on the goal,<br>mind disciplined,<br>no distractions.</h2>
-				<p>Benjamin Gimenez, Race car driver</p>
+				<p>BENJAMÍN GIMÉNEZ, RACE CAR DRIVER</p>
 			</div>
 		</section>
 
@@ -105,19 +129,25 @@
 
 			<section id="intro" class="wrapper about-section">
 				<div class="about-content">
-					<h2 style="font-size: 2.5rem;">ABOUT ME</h2>
-					<p>My name is Benjamin Gimenez, a dedicated and ambitious race car driver. At 15 years old, I pursue my dream of becoming a professional driver with passion, sacrifice, and hard work. Every training session represents a new stage in this demanding journey, where I constantly push my limits and achieve my personal goals.</p>
+					<h2>ABOUT ME</h2>
+					<p style="font-size: 1.2rem; line-height: 1.6;">My name is Benjamin Gimenez, a dedicated and ambitious race car driver. At 15 years old, I pursue my dream of becoming a professional driver with passion, sacrifice, and hard work. Every training session represents a new stage in this demanding journey, where I constantly push my limits and achieve my personal goals.</p>
 				</div>
 			</section>
 
 			<div class="marquee-separator">
-				<div class="marquee-text">Benjamin Gimenez • Benjamin Gimenez • Benjamin Gimenez • Benjamin Gimenez • </div>
+				<div class="marquee-text">
+					BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • 
+				</div>
 			</div>
 
-			<section class="wrapper style1" style="text-align: center; padding: 100px 0;">
+			<section class="wrapper quote-section" style="text-align: center; padding: 150px 0;">
 				<div class="container">
-					<h2 style="font-size: 3rem; line-height: 1.2;">"Of all those who came, he is the one who stands out the most"</h2>
-					<p style="font-size: 1.2rem; margin-top: 20px;">Martin Videla - MV Racing Team</p>
+					<h2>"OF ALL THOSE<br>WHO CAME,<br>HE IS THE ONE WHO<br>STANDS OUT THE MOST"</h2>
+					<p style="font-size: 1.5rem; margin-top: 40px;">
+						<a href="https://www.instagram.com/TU_LINK" target="_blank" style="text-decoration: none; border-bottom: 2px solid #ff0000;">
+							Martin Videla - MV Racing Team
+						</a>
+					</p>
 				</div>
 			</section>
 
@@ -131,7 +161,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-6 col-12-medium">
-							<h3>Follow Me</h3>
+							<h2 style="color: #ff0000 !important;">FOLLOW ME</h2>
 							<ul class="actions stacked">
 								<li><a href="#">Instagram</a></li>
 								<li><a href="#">TikTok</a></li>
@@ -140,20 +170,18 @@
 							</ul>
 						</div>
 						<div class="col-6 col-12-medium">
-							<h3>Contact Me</h3>
-							<p>
-								Email: <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a><br />
-								Phone: +XX XXX XXXXXXX
+							<h2 style="color: #ff0000 !important;">CONTACT ME</h2>
+							<p style="font-size: 1.2rem;">
+								<strong>Email:</strong> <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a><br />
+								<strong>Phone:</strong> +XX XXX XXXXXXX
 							</p>
 						</div>
 					</div>
 				</div>
 			</section>
-
 		</div>
 
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/main.js"></script>
-
 	</body>
 </html>
