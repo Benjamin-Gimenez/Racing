@@ -11,13 +11,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
-	<body <section id="hero-header">
-    <video autoplay muted loop playsinline id="video-fondo">
-        <source src="images/loop_pagina.mp4" type="video/mp4"
-    </video>
-    <div class="contenido-encima">
-        <h1>BENJAMÍN GIMÉNEZ</h1>
-        <p>Bienvenido a mi sitio oficial</p>
+	<body <body class="is-preload">
+
+    <section id="hero-header" style="position: relative; height: 100vh; width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #000;">
+        <video autoplay muted loop playsinline style="position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: 0; transform: translate(-50%, -50%); object-fit: cover;">
+            <source src="images/fondo.mp4" type="video/mp4">
+        </video>
+        
+        <div style="z-index: 1; text-align: center; color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.8);">
+            <h1 style="font-size: 3.5rem; color: white !important; margin: 0;">BENJAMÍN GIMÉNEZ</h1>
+            <p style="font-size: 1.5rem;">Bienvenido a mi sitio oficial</p>
+        </div>
+    </section>
+
+    <div id="wrapper">
     </div>
 </section>
 		<div id="page-wrapper">
@@ -289,3 +296,4 @@
 	</body>
 
 </html>
+
