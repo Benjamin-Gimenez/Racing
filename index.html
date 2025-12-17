@@ -6,108 +6,118 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
+			/* CONFIGURACIÓN GENERAL */
 			body, #page-wrapper, #wrapper, .wrapper, #footer {
 				background-color: #000000 !important;
 				background-image: none !important;
 				color: #ffffff !important;
 			}
 
-			/* Punto 4: Logo Flotante Gigante */
+			/* LOGO FLOTANTE - PUNTO 2 y 4 */
 			.floating-logo {
 				position: fixed;
-				bottom: 30px;
-				right: 30px;
-				width: 250px; /* Mucho más grande */
+				bottom: 20px;
+				right: 20px;
+				width: 150px; /* Tamaño imponente */
 				z-index: 9999;
-				filter: drop-shadow(0 0 10px rgba(255,0,0,0.3));
+				pointer-events: none; /* Para que no estorbe al hacer clic */
 			}
 
-			/* Punto 1: Texto sobre Video GIGANTE */
+			/* VIDEO HERO - PUNTO 1 y 3 */
 			.video-overlay-text {
 				position: absolute;
 				left: 5%;
 				top: 50%;
 				transform: translateY(-50%);
-				color: #ff0000;
 				z-index: 2;
-				text-align: left;
-				width: 70%; /* Ocupa el 70% de la pantalla */
+				width: 70%; 
 			}
 			.video-overlay-text h2 {
-				font-size: clamp(3rem, 8vw, 6rem); /* Tamaño dinámico muy grande */
-				line-height: 0.9;
-				font-weight: 900;
 				color: #ff0000 !important;
-				margin-bottom: 20px;
+				font-size: 5.5rem; /* Letras muy grandes */
+				line-height: 1;
+				font-weight: 900;
 				text-transform: uppercase;
+				margin-bottom: 10px;
 			}
 			.video-overlay-text p {
-				font-size: 1.5rem;
 				color: #ff0000 !important;
+				font-size: 1.5rem;
 				font-weight: 600;
-				letter-spacing: 2px;
+				margin: 0;
 			}
 
-			/* Punto 2 y 3: Presentación con imagen de fondo corregida */
+			/* PRESENTACIÓN - PUNTO 1, 2 y 3 */
 			.about-section {
 				position: relative;
-				background: url('images/presentacion.jpg') no-repeat center center;
-				background-size: cover;
 				min-height: 100vh;
 				display: flex;
 				align-items: center;
+				background: url('images/presentacion.jpg') no-repeat center center;
+				background-size: cover !important;
+				border-top: 4px solid #ff0000;
 			}
 			.about-content {
-				background: rgba(0,0,0,0.8);
-				padding: 60px;
-				max-width: 650px;
+				background: rgba(0,0,0,0.85);
+				padding: 50px;
+				max-width: 600px;
 				margin-left: 5%;
-				border-left: 5px solid #ff0000;
 			}
 			.about-content h2 {
-				color: #ffffff !important; /* Punto 2: Blanco */
+				color: #ffffff !important;
 				font-size: 4rem;
-				margin-bottom: 40px; /* Separación del texto */
+				margin-bottom: 30px;
 				font-weight: 900;
 			}
 
-			/* Punto 5: Texto de Martin Videla GIGANTE y por líneas */
-			.quote-section h2 {
-				font-size: clamp(2.5rem, 6vw, 5rem) !important;
-				line-height: 1.1;
-				font-weight: 900;
-				max-width: 900px;
-				margin: 0 auto;
-				text-transform: uppercase;
-			}
-
-			/* Punto 7: Línea roja deslizante corregida */
+			/* LÍNEA DESLIZANTE - PUNTO 5 */
 			.marquee-separator {
-				background-color: #ff0000;
-				color: white;
+				background: #ff0000;
 				padding: 15px 0;
 				overflow: hidden;
 				white-space: nowrap;
-				font-size: 1.5rem;
 			}
 			.marquee-text {
 				display: inline-block;
-				animation: marquee 10s linear infinite;
+				animation: marquee 15s linear infinite;
 				font-weight: 900;
 				text-transform: uppercase;
+				font-size: 1.8rem;
 			}
 			@keyframes marquee {
 				from { transform: translateX(0); }
 				to { transform: translateX(-50%); }
 			}
 
-			/* Punto 7: Nombre lateral */
+			/* CITA MARTIN VIDELA - PUNTO 5 y 6 */
+			.quote-section h2 {
+				font-size: 4.5rem;
+				line-height: 1.1;
+				font-weight: 900;
+				text-transform: uppercase;
+				margin-bottom: 30px;
+			}
+
+			/* NOMBRE LATERAL - PUNTO 7 */
 			.side-name {
 				color: #ff0000 !important;
-				font-size: 8rem;
+				font-size: 10rem;
 				font-weight: 900;
 				line-height: 0.8;
-				margin: 100px 0;
+				text-transform: uppercase;
+				margin: 80px 0;
+			}
+
+			/* AJUSTES PARA CELULAR (MOBILE) */
+			@media screen and (max-width: 768px) {
+				.video-overlay-text { width: 90%; }
+				.video-overlay-text h2 { font-size: 2.5rem; }
+				.floating-logo { width: 80px; bottom: 10px; right: 10px; }
+				.about-content h2 { font-size: 2.5rem; }
+				.about-content { margin: 20px; padding: 30px; }
+				.quote-section h2 { font-size: 2rem; }
+				.side-name { font-size: 4rem; }
+				.col-6 { width: 100% !important; margin-bottom: 40px; }
 			}
 		</style>
 	</head>
@@ -116,72 +126,4 @@
 		<img src="images/logo.png" class="floating-logo" alt="Logo">
 
 		<section id="hero-header" style="position: relative; height: 100vh; width: 100%; overflow: hidden;">
-			<video autoplay muted loop playsinline style="position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: 0; transform: translate(-50%, -50%); object-fit: cover;">
-				<source src="images/fondo.mp4" type="video/mp4">
-			</video>
-			<div class="video-overlay-text">
-				<h2>Eyes on the goal,<br>mind disciplined,<br>no distractions.</h2>
-				<p>BENJAMÍN GIMÉNEZ, RACE CAR DRIVER</p>
-			</div>
-		</section>
-
-		<div id="page-wrapper">
-
-			<section id="intro" class="wrapper about-section">
-				<div class="about-content">
-					<h2>ABOUT ME</h2>
-					<p style="font-size: 1.2rem; line-height: 1.6;">My name is Benjamin Gimenez, a dedicated and ambitious race car driver. At 15 years old, I pursue my dream of becoming a professional driver with passion, sacrifice, and hard work. Every training session represents a new stage in this demanding journey, where I constantly push my limits and achieve my personal goals.</p>
-				</div>
-			</section>
-
-			<div class="marquee-separator">
-				<div class="marquee-text">
-					BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • 
-				</div>
-			</div>
-
-			<section class="wrapper quote-section" style="text-align: center; padding: 150px 0;">
-				<div class="container">
-					<h2>"OF ALL THOSE<br>WHO CAME,<br>HE IS THE ONE WHO<br>STANDS OUT THE MOST"</h2>
-					<p style="font-size: 1.5rem; margin-top: 40px;">
-						<a href="https://www.instagram.com/TU_LINK" target="_blank" style="text-decoration: none; border-bottom: 2px solid #ff0000;">
-							Martin Videla - MV Racing Team
-						</a>
-					</p>
-				</div>
-			</section>
-
-			<div class="container">
-				<div class="side-name">
-					BENJAMIN<br>GIMENEZ
-				</div>
-			</div>
-
-			<section id="footer" class="wrapper">
-				<div class="container">
-					<div class="row">
-						<div class="col-6 col-12-medium">
-							<h2 style="color: #ff0000 !important;">FOLLOW ME</h2>
-							<ul class="actions stacked">
-								<li><a href="#">Instagram</a></li>
-								<li><a href="#">TikTok</a></li>
-								<li><a href="#">Facebook</a></li>
-								<li><a href="#">YouTube</a></li>
-							</ul>
-						</div>
-						<div class="col-6 col-12-medium">
-							<h2 style="color: #ff0000 !important;">CONTACT ME</h2>
-							<p style="font-size: 1.2rem;">
-								<strong>Email:</strong> <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a><br />
-								<strong>Phone:</strong> +XX XXX XXXXXXX
-							</p>
-						</div>
-					</div>
-				</div>
-			</section>
-		</div>
-
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/main.js"></script>
-	</body>
-</html>
+			<video autoplay muted loop playsinline style="position: absolute; top: 50%; left:
