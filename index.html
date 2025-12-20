@@ -157,6 +157,40 @@
 				.about-content { margin: 0 20px; }
 				.floating-logo { width: 80px; }
 			}
+			/* Estilos para la galería de TikTok */
+.video-section {
+    padding: 80px 0;
+    background: #000;
+}
+.video-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Permite deslizar con el dedo en celular */
+    padding: 20px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #ff0000 #000;
+}
+.tiktok-card {
+    min-width: 325px; /* Ancho ideal para el formato vertical de TikTok */
+    background: #0a0a0a;
+    border-radius: 12px;
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: center;
+}
+.tiktok-card iframe {
+    width: 100%;
+    height: 580px; /* Altura para que el video se vea bien */
+    border-radius: 8px;
+}
+.watch-link {
+    display: block;
+    margin-top: 15px;
+    color: #ff0000 !important;
+    font-weight: 900;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
 		</style>
 	</head>
 	<body>
@@ -181,6 +215,41 @@
 		</section>
 
 		<div class="marquee-container">
+			<section class="video-section">
+    <div class="container">
+        <h2 style="color: #ff0000 !important; font-size: 3rem; font-weight: 900; margin-bottom: 30px;">LATEST ACTION</h2>
+        
+        <div class="video-slider">
+            <div class="tiktok-card">
+                <iframe src="https://www.tiktok.com/embed/v2/TU_ID_AQUI_1" frameborder="0" allowfullscreen></iframe>
+                <a href="https://www.tiktok.com/ben.gimenez_ap/video/7574451635900910866" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
+            </div>
+
+            <div class="tiktok-card">
+                <iframe src="https://www.tiktok.com/embed/v2/TU_ID_AQUI_2" frameborder="0" allowfullscreen></iframe>
+                <a href="https://www.tiktok.com/@tu_usuario/video/TU_ID_AQUI_2" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
+            </div>
+
+            <div class="tiktok-card">
+                <iframe src="https://www.tiktok.com/embed/v2/TU_ID_AQUI_3" frameborder="0" allowfullscreen></iframe>
+                <a href="https://www.tiktok.com/@tu_usuario/video/TU_ID_AQUI_3" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
+            </div>
+
+            <div class="tiktok-card">
+                <iframe src="https://www.tiktok.com/embed/v2/TU_ID_AQUI_4" frameborder="0" allowfullscreen></iframe>
+                <a href="https://www.tiktok.com/@tu_usuario/video/TU_ID_AQUI_4" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
+            </div>
+
+            <div class="tiktok-card" style="display: flex; align-items: center; justify-content: center; border: 2px dashed #333;">
+                <p style="color: #333; font-weight: 900;">COMING SOON</p>
+            </div>
+
+            <div class="tiktok-card" style="display: flex; align-items: center; justify-content: center; border: 2px dashed #333;">
+                <p style="color: #333; font-weight: 900;">COMING SOON</p>
+            </div>
+        </div>
+    </div>
+</section>
 			<div class="marquee-text">
 				BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • 
 			</div>
@@ -222,6 +291,7 @@
 
 	</body>
 </html>
+
 
 
 
