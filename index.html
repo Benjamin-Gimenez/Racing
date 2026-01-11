@@ -8,9 +8,9 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
 			/* RESET Y FONDO */
-			body, html { margin: 0; padding: 0; background-color: #000 !important; color: #fff; }
+			body, html { margin: 0; padding: 0; background-color: #000 !important; color: #fff; overflow-x: hidden; }
 			
-			/* LOGO FLOTANTE - FIJO ABAJO DERECHA */
+			/* LOGO FLOTANTE */
 			.floating-logo {
 				position: fixed;
 				bottom: 20px;
@@ -19,26 +19,22 @@
 				z-index: 9999;
 			}
 
-			/* SECCIÓN VIDEO - SI NO CARGA EL VIDEO, SE VERÁ NEGRO CON EL TEXTO */
+			/* SECCIÓN VIDEO - TEXTO GIGANTE */
 			#hero-header {
 				position: relative;
 				height: 100vh;
 				width: 100%;
 				display: flex;
 				align-items: center;
-				justify-content: flex-start;
 				overflow: hidden;
 				background: #000;
 			}
 
 			#hero-header video {
 				position: absolute;
-				top: 50%;
-				left: 50%;
-				min-width: 100%;
-				min-height: 100%;
-				width: auto;
-				height: auto;
+				top: 50%; left: 50%;
+				min-width: 100%; min-height: 100%;
+				width: auto; height: auto;
 				z-index: 1;
 				transform: translate(-50%, -50%);
 				object-fit: cover;
@@ -48,26 +44,28 @@
 				position: relative;
 				z-index: 2;
 				padding-left: 5%;
-				width: 80%;
+				width: 90%;
 			}
 
 			.video-overlay-text h2 {
 				color: #ff0000 !important;
-				font-size: clamp(2.5rem, 7vw, 5.5rem);
-				line-height: 1;
+				font-size: clamp(3rem, 12vw, 9.5rem) !important; 
+				line-height: 0.85;
 				font-weight: 900;
 				text-transform: uppercase;
-				margin: 0 0 15px 0;
+				margin: 0;
+				letter-spacing: -2px;
 			}
 
 			.video-overlay-text p {
 				color: #ff0000 !important;
 				font-size: clamp(1rem, 2vw, 1.5rem);
 				font-weight: 600;
+				margin-top: 15px;
 				text-transform: uppercase;
 			}
 
-			/* SECCIÓN ABOUT ME - CON IMAGEN DE FONDO */
+			/* SECCIÓN ABOUT ME */
 			.about-section {
 				position: relative;
 				padding: 100px 0;
@@ -92,7 +90,6 @@
 				font-size: 3.5rem;
 				font-weight: 900;
 				margin-bottom: 20px;
-				letter-spacing: 2px; /* Evita que se encimen las letras */
 			}
 
 			/* LÍNEA DESLIZANTE */
@@ -101,6 +98,7 @@
 				padding: 15px 0;
 				overflow: hidden;
 				white-space: nowrap;
+				border-bottom: 1px solid #000;
 			}
 
 			.marquee-text {
@@ -109,6 +107,7 @@
 				font-weight: 900;
 				font-size: 1.5rem;
 				text-transform: uppercase;
+				color: #000;
 			}
 
 			@keyframes scroll-text {
@@ -116,82 +115,35 @@
 				to { transform: translateX(-50%); }
 			}
 
-			/* CITA MARTIN VIDELA */
-			.quote-section {
-				padding: 120px 20px;
-				text-align: center;
-				background: #000;
+			/* GALERÍA TIKTOK */
+			.video-section { padding: 80px 5%; background: #000; }
+			.video-slider { 
+				display: flex; gap: 20px; 
+				overflow-x: auto; padding: 20px 0; 
+				scrollbar-width: thin; scrollbar-color: #ff0000 #000; 
 			}
+			.tiktok-card { 
+				min-width: 325px; background: #0a0a0a; 
+				border-radius: 12px; border: 1px solid #333; 
+				padding: 10px; text-align: center; 
+			}
+			.tiktok-card iframe { width: 100%; height: 580px; border-radius: 8px; }
+			.watch-link { display: block; margin-top: 15px; color: #ff0000 !important; font-weight: 900; text-decoration: none; font-size: 0.9rem; }
 
-			.quote-section h2 {
-				font-size: clamp(2rem, 5vw, 4rem);
-				line-height: 1.1;
-				font-weight: 900;
-				text-transform: uppercase;
-			}
+			/* CITA Y NOMBRE */
+			.quote-section { padding: 120px 20px; text-align: center; background: #000; }
+			.quote-section h2 { color: #fff !important; font-size: clamp(2rem, 5vw, 4rem); line-height: 1.1; font-weight: 900; text-transform: uppercase; }
+			.side-name { color: #ff0000 !important; font-size: clamp(4rem, 15vw, 10rem); font-weight: 900; line-height: 0.8; text-transform: uppercase; padding: 50px 5%; }
 
-			/* NOMBRE LATERAL GIGANTE */
-			.side-name {
-				color: #ff0000 !important;
-				font-size: clamp(4rem, 15vw, 10rem);
-				font-weight: 900;
-				line-height: 0.8;
-				text-transform: uppercase;
-				padding: 50px 5%;
-			}
-
-			/* CONTACTO */
-			#footer-new {
-				padding: 80px 5%;
-				background: #000;
-				border-top: 1px solid #333;
-			}
-
-			.footer-grid {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 40px;
-			}
+			/* FOOTER */
+			#footer-new { padding: 80px 5%; background: #000; border-top: 1px solid #333; }
+			.footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 
 			@media screen and (max-width: 768px) {
 				.footer-grid { grid-template-columns: 1fr; }
 				.about-content { margin: 0 20px; }
 				.floating-logo { width: 80px; }
 			}
-			/* Estilos para la galería de TikTok */
-.video-section {
-    padding: 80px 0;
-    background: #000;
-}
-.video-slider {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto; /* Permite deslizar con el dedo en celular */
-    padding: 20px 0;
-    scrollbar-width: thin;
-    scrollbar-color: #ff0000 #000;
-}
-.tiktok-card {
-    min-width: 325px; /* Ancho ideal para el formato vertical de TikTok */
-    background: #0a0a0a;
-    border-radius: 12px;
-    border: 1px solid #333;
-    padding: 10px;
-    text-align: center;
-}
-.tiktok-card iframe {
-    width: 100%;
-    height: 580px; /* Altura para que el video se vea bien */
-    border-radius: 8px;
-}
-.watch-link {
-    display: block;
-    margin-top: 15px;
-    color: #ff0000 !important;
-    font-weight: 900;
-    text-decoration: none;
-    font-size: 0.9rem;
-}
 		</style>
 	</head>
 	<body>
@@ -202,89 +154,81 @@
 			<video autoplay muted loop playsinline>
 				<source src="images/fondo.mp4" type="video/mp4">
 			</video>
-			<div> class="video-overlay-text">
-				<h2>Eyes on the goal,<br>mind disciplined,<br>no distractions.</h2>
-				<p>BENJAMIN GIMENEZ, RACE CAR DRIVER</p>
+			<div class="video-overlay-text">
+				<h2>Eyes on<br>the goal,<br>mind<br>disciplined.</h2>
+				<p>BENJAMIN GIMENEZ • RACE CAR DRIVER</p>
 			</div>
 		</section>
 
 		<section class="about-section">
-			<div> class="about-content">
+			<div class="about-content">
 				<h2>ABOUT ME</h2>
 				<p>My name is Benjamin Gimenez, a dedicated and ambitious race car driver. At 15 years old, I pursue my dream of becoming a professional driver with passion, sacrifice, and hard work. Every training session represents a new stage in this demanding journey, where I constantly push my limits and achieve my personal goals.</p>
 			</div>
 		</section>
 
-		<div> class="marquee-container">
-			<section class="video-section">
-    <div>
-		class="container">
-        <h2 style="color: #ff0000 !important; font-size: 3rem; font-weight: 900; margin-bottom: 30px;">TIKTOK VIDEOS</h2>
-        
-        <div> class="video-slider">
-            <div> class="tiktok-card">
-                <iframe src="https://www.tiktok.com/embed/v2/7593036796968144136" frameborder="0" allowfullscreen></iframe>
-                <a href="https://www.tiktok.com/@ben.gimenez_ap/video/7593036796968144136" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
-            </div>
-
-            <div> class="tiktok-card">
-                <iframe src="https://www.tiktok.com/embed/v2/7584169669569924370" frameborder="0" allowfullscreen></iframe>
-                <a href="https://www.tiktok.com/@ben.gimenez_ap/video/7584169669569924370" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
-            </div>
-
-            <div> class="tiktok-card">
-                <iframe src="https://www.tiktok.com/embed/v2/7575373676825103624" frameborder="0" allowfullscreen></iframe>
-                <a href="https://www.tiktok.com/@ben.gimenez_ap/video/7575373676825103624" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
-            </div>
-
-            <div> class="tiktok-card">
-                <iframe src="https://www.tiktok.com/embed/v2/7574947624684358919" frameborder="0" allowfullscreen></iframe>
-                <a href="https://www.tiktok.com/@ben.gimenez_ap/video/7574947624684358919" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
-            </div>
-
-            </div> class="tiktok-card">
-                <iframe src="https://www.tiktok.com/embed/v2/7574451635900910866" frameborder="0" allowfullscreen></iframe>
-                <a href="https://www.tiktok.com/@ben.gimenez_ap/video/7574451635900910866" target="_blank" class="watch-link">WATCH ON TIKTOK</a>		
-  	</div>
-		
-</section>
+		<div class="marquee-container">
 			<div class="marquee-text">
-				BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • 
+				BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • 
 			</div>
 		</div>
 
-		<section class="quote-section">
-    <h2 style="color: #ffffff !important;"> "OF ALL THOSE<br>
-        WHO CAME,<br>
-        HE IS THE ONE WHO<br>
-        STANDS OUT THE MOST."
-    </h2>
-    <p style="margin-top:30px;">
-        <a href="https://www.instagram.com/mv_kartracing/" target="_blank" style="color:#ffffff; font-size: 1.2rem; text-decoration: underline;">
-            Martin Videla - MV Kart Racing
-        </a>
-    </p>
-</section>
+		<section class="video-section">
+			<h2 style="color: #ff0000 !important; font-size: 3rem; font-weight: 900; margin-bottom: 30px;">LATEST ACTION</h2>
+			<div class="video-slider">
+				<div class="tiktok-card">
+					<iframe src="https://www.tiktok.com/embed/7593036796968144136" frameborder="0" allowfullscreen></iframe>
+					<a href="https://www.tiktok.com/@ben.gimenez_ap/video/7593036796968144136" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
+				</div>
+				<div class="tiktok-card">
+					<iframe src="https://www.tiktok.com/embed/7584169669569924370" frameborder="0" allowfullscreen></iframe>
+					<a href="https://www.tiktok.com/@ben.gimenez_ap/video/7584169669569924370" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
+				</div>
+				<div class="tiktok-card">
+					<iframe src="https://www.tiktok.com/embed/7575373676825103624" frameborder="0" allowfullscreen></iframe>
+					<a href="https://www.tiktok.com/@ben.gimenez_ap/video/7575373676825103624" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
+				</div>
+				<div class="tiktok-card">
+					<iframe src="https://www.tiktok.com/embed/7574947624684358919" frameborder="0" allowfullscreen></iframe>
+					<a href="https://www.tiktok.com/@ben.gimenez_ap/video/7574947624684358919" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
+				</div>
+				<div class="tiktok-card">
+					<iframe src="https://www.tiktok.com/embed/7574451635900910866" frameborder="0" allowfullscreen></iframe>
+					<a href="https://www.tiktok.com/@ben.gimenez_ap/video/7574451635900910866" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
+				</div>
+			</div>
+		</section>
 
-		<div class="side-name">
-			BENJAMIN<br>GIMENEZ
-		</div>
+		<section class="quote-section">
+			<h2>"OF ALL THOSE<br>WHO CAME,<br>HE IS THE ONE WHO<br>STANDS OUT THE MOST."</h2>
+			<p style="margin-top:30px;">
+				<a href="https://www.instagram.com/mv_kartracing/" target="_blank" style="color:#ffffff; font-size: 1.2rem; text-decoration: underline;">
+					Martin Videla - MV Kart Racing
+				</a>
+			</p>
+		</section>
+
+		<div class="side-name">BENJAMIN<br>GIMENEZ</div>
 
 		<footer id="footer-new">
 			<div class="footer-grid">
 				<div>
 					<h3 style="color:#ff0000; font-weight:900;">FOLLOW ME</h3>
 					<p><a href="https://www.instagram.com/ben.gimenez_ap/">Instagram</a></p>
-					<p><a href="https://www.tiktok.com/@ben.gimenez_ap?lang=es-419">TikTok</a></p>
+					<p><a href="https://www.tiktok.com/@ben.gimenez_ap">TikTok</a></p>
 					<p><a href="https://www.facebook.com/profile.php?id=61585290110281">Facebook</a></p>
 					<p><a href="https://www.youtube.com/@ben.gimenez">YouTube</a></p>
 				</div>
 				<div>
 					<h3 style="color:#ff0000; font-weight:900;">CONTACT ME</h3>
-					<p>Email: ben.gimenez.contact.com</p>
+					<p>Email: ben.gimenez.contact@gmail.com</p>
 					<p>Phone: +54 11 21862872</p>
 				</div>
-</footer>
+			</div>
+			<div style="text-align: right; margin-top: 50px; font-size: 0.7rem; opacity: 0.5;">
+				MADE WITH HELP ON <span style="color:#4285F4">G</span><span style="color:#EA4335">E</span><span style="color:#FBBC05">M</span><span style="color:#4285F4">I</span><span style="color:#34A853">N</span><span style="color:#EA4335">I</span>
+			</div>
+		</footer>
 
-
-
+	</body>
+</html>
