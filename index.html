@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
 			/* --- ESTILOS GENERALES --- */
-			body, html { margin: 0; padding: 0; background-color: #000 !important; color: #fff; overflow-x: hidden; }
+			body, html { margin: 0; padding: 0; background-color: #000 !important; color: #fff; overflow-x: hidden; font-family: sans-serif; }
 			
 			/* LOGO FLOTANTE (Visible en todas las vistas) */
 			.floating-logo { position: fixed; bottom: 20px; right: 20px; width: 120px; z-index: 9999; }
@@ -16,13 +16,16 @@
 			/* --- SISTEMA DE SPA (ROUTING) --- */
 			.view {
 				display: none; /* Por defecto todo está oculto */
-				animation: fadeIn 0.5s ease; /* Efecto suave al cambiar de página */
+				opacity: 0;
+				transition: opacity 0.5s ease;
 			}
 			/* La clase 'active' es la que muestra la página actual */
 			.view.active {
 				display: block;
+				opacity: 1;
+				animation: fadeIn 0.8s ease forwards;
 			}
-			@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+			@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
 			/* --- ESTILOS DE LA PÁGINA HOME --- */
 			#hero-header {
@@ -82,17 +85,63 @@
 			#footer-new { padding: 80px 5%; background: #000; border-top: 1px solid #333; }
 			.footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 
-			/* --- ESTILOS DE LA PÁGINA BIOGRAFÍA --- */
-			#biography-view { padding: 80px 5%; min-height: 100vh; background: #050505; }
-			.bio-container { max-width: 900px; margin: 0 auto; }
-			.bio-header { font-size: clamp(2.5rem, 5vw, 5rem); color: #ff0000; font-weight: 900; text-transform: uppercase; border-bottom: 2px solid #333; margin-bottom: 40px; padding-bottom: 20px; }
-			.bio-subtitle { font-size: 1.5rem; color: #fff; font-weight: bold; margin-top: 50px; margin-bottom: 15px; border-left: 4px solid #ff0000; padding-left: 15px; text-transform: uppercase; }
-			.bio-paragraph { font-size: 1.1rem; color: #ccc; line-height: 1.8; margin-bottom: 20px; text-align: justify; }
+			/* --- ESTILOS DE LA PÁGINA BIOGRAFÍA (OPTIMIZADO) --- */
+			#biography { 
+				/* Espacio superior grande para que no se corte en PC */
+				padding-top: 180px; 
+				padding-bottom: 100px;
+				padding-left: 10%;
+				padding-right: 10%;
+				min-height: 100vh; 
+				background: #000; 
+			}
+			.bio-container { max-width: 1000px; margin: 0 auto; }
+			
+			.bio-header { 
+				font-size: clamp(3rem, 6vw, 6rem); /* Título grande responsive */
+				color: #ff0000; 
+				font-weight: 900; 
+				text-transform: uppercase; 
+				border-bottom: 2px solid #333; 
+				margin-bottom: 50px; 
+				padding-bottom: 20px; 
+			}
+			
+			.bio-subtitle { 
+				font-size: 1.8rem; 
+				color: #fff; 
+				font-weight: 900; 
+				margin-top: 60px; 
+				margin-bottom: 20px; 
+				border-left: 5px solid #ff0000; 
+				padding-left: 20px; 
+				text-transform: uppercase; 
+			}
+			
+			.bio-paragraph { 
+				font-size: 1.3rem; 
+				color: #ccc; 
+				line-height: 1.8; 
+				margin-bottom: 30px; 
+				text-align: left; 
+				max-width: 900px;
+			}
 
+			/* OPTIMIZACIÓN CELULAR */
 			@media screen and (max-width: 768px) {
 				.footer-grid { grid-template-columns: 1fr; }
-				.about-content { margin: 0 20px; }
+				.about-content { margin: 0 20px; padding: 30px; }
 				.floating-logo { width: 80px; }
+				
+				/* Ajuste Biografía Celular */
+				#biography {
+					padding-top: 120px; /* Menos espacio arriba en celular */
+					padding-left: 20px;
+					padding-right: 20px;
+				}
+				.bio-header { font-size: 2.5rem; margin-bottom: 30px; }
+				.bio-subtitle { font-size: 1.4rem; margin-top: 40px; }
+				.bio-paragraph { font-size: 1.1rem; }
 			}
 		</style>
 	</head>
@@ -100,7 +149,7 @@
 
 		<img src="images/logo.png" class="floating-logo" alt="Logo">
 
-		<div id="home" class="view">
+		<div id="home" class="view active">
 			
 			<section id="hero-header">
 				<video autoplay muted loop playsinline>
@@ -184,24 +233,19 @@
 						<p>Phone: +54 11 21862872</p>
 					</div>
 				</div>
-				<div style="text-align: right; margin-top: 50px; font-size: 0.7rem; opacity: 0.5;">
-					MADE WITH HELP ON <span style="color:#4285F4">G</span><span style="color:#EA4335">E</span><span style="color:#FBBC05">M</span><span style="color:#4285F4">I</span><span style="color:#34A853">N</span><span style="color:#EA4335">I</span>
-				</div>
 			</footer>
 		</div>
 
-		<div id="biography" class="view" id="biography-view">
-			<div class="container bio-container">
-				<h1 class="bio-header">FULL BIOGRAPHY</h1>
+		<div id="biography" class="view">
+			<div class="bio-container">
+				<h1 class="bio-header">BIOGRAPHY</h1>
 				
 				<div class="bio-subtitle">THE BEGINNING</div>
 				<p class="bio-paragraph">
-					My passion for motorsport started at a young age. What began as a hobby quickly turned into a professional pursuit. Driving isn't just about speed for me; it's about discipline, precision, and the constant drive to improve lap after lap.
-				</p>
-
-				<div class="bio-subtitle">CURRENT CAREER: APAK</div>
+My passion for cars began when I was little, when my father would take me in his bus. I started seeing a lot of cars and became interested; today I'm passionate about anything with an internal combustion engine. Soon, I decided to take the plunge and try a go-kart for the first time. I loved it and decided that's what I would do for the rest of my life from that day forward. For me, driving isn't just about speed; it's about discipline, falls, and the drive to improve lap after lap.
+				<div class="bio-subtitle">CURRENT STATUS</div>
 				<p class="bio-paragraph">
-					Currently, I am competing in the <strong>APAK category</strong>. This championship is a crucial testing ground where I am honing my race craft, learning to manage tire wear, and developing defensive and offensive driving techniques.
+					Currently, I'm not competing in any category. But I'm training hard to perfect my technique and improve session after session, preparing to compete in the <strong>"APAK"</strong> category under the <strong>FRAD Metropolitana.</strong>
 				</p>
 
 				<div class="bio-subtitle">THE FUTURE: 2027</div>
@@ -209,37 +253,41 @@
 					My eyes are set on the <strong>Super A Category for the 2027 season</strong>. This is the next major step in my career, and my training regimen—both physical and on the simulator—is fully focused on being ready for that challenge.
 				</p>
 
-				<a href="#home" class="btn-router" style="margin-top: 50px;">BACK TO HOME</a>
+				<a href="#home" class="btn-router" style="margin-top: 50px;">BACK</a>
 			</div>
 		</div>
 
 		<script>
-			// Función que decide qué página mostrar basándose en la URL (el #hash)
+			// Esta función revisa la dirección web para saber qué mostrar
 			function handleRouting() {
-				// 1. Obtiene el hash actual (ej: 'biography'). Si no hay, asume 'home'.
+				// Toma lo que hay después del # (ej: biography). Si está vacío, usa 'home'
 				const hash = window.location.hash.slice(1) || 'home';
 				
-				// 2. Oculta TODAS las vistas
+				// Oculta todas las secciones
 				document.querySelectorAll('.view').forEach(view => {
 					view.classList.remove('active');
+					view.style.display = 'none'; // Asegura que se oculten
 				});
 
-				// 3. Busca la vista correspondiente y la muestra
+				// Busca la sección correcta y la muestra
 				const targetView = document.getElementById(hash);
 				if (targetView) {
-					targetView.classList.add('active');
-					// Scroll al inicio suavemente
-					window.scrollTo(0, 0);
+					targetView.style.display = 'block'; // La hace visible
+					// Pequeño retardo para que la animación de opacidad funcione
+					setTimeout(() => {
+						targetView.classList.add('active');
+					}, 10);
+					window.scrollTo(0, 0); // Sube al inicio
 				} else {
-					// Si el hash no existe, vuelve al home
-					document.getElementById('home').classList.add('active');
+					// Si falla, vuelve al home
+					const home = document.getElementById('home');
+					home.style.display = 'block';
+					setTimeout(() => { home.classList.add('active'); }, 10);
 				}
 			}
 
-			// Escucha cuando la URL cambia (cuando tocas un botón)
+			// Escucha los cambios
 			window.addEventListener('hashchange', handleRouting);
-			
-			// Ejecuta la función al cargar la página por primera vez
 			window.addEventListener('load', handleRouting);
 		</script>
 
