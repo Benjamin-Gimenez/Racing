@@ -89,4 +89,125 @@
 			<section class="about-section">
 				<div class="about-content">
 					<h2>ABOUT ME</h2>
-					<p>My name is Benjamin Gimenez, a dedicated and ambitious race car driver. At 15 years old, I pursue my dream of becoming a professional driver with
+					<p>My name is Benjamin Gimenez, a dedicated and ambitious race car driver. At 15 years old, I pursue my dream of becoming a professional driver with passion, sacrifice, and hard work.</p>
+					<a href="#biography" class="btn-router">READ MORE</a>
+				</div>
+			</section>
+
+			<div class="marquee-container">
+				<div class="marquee-text">
+					BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • 
+				</div>
+			</div>
+
+			<section class="video-section">
+				<h2 style="color: #ff0000 !important; font-size: 3rem; font-weight: 900; margin-bottom: 30px;">LATEST ACTION</h2>
+				<div class="video-slider">
+					
+					<div class="tiktok-card">
+						<iframe src="https://www.tiktok.com/embed/7604180174090898696" frameborder="0" allowfullscreen></iframe>
+						<a href="https://www.tiktok.com/@ben.gimenez_ap/video/7604180174090898696" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
+					</div>
+					<div class="tiktok-card">
+						<iframe src="https://www.tiktok.com/embed/7603053008015887634" frameborder="0" allowfullscreen></iframe>
+						<a href="https://www.tiktok.com/@ben.gimenez_ap/video/7603053008015887634" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
+					</div>
+					<div class="tiktok-card">
+						<iframe src="https://www.tiktok.com/embed/7601920673308478727" frameborder="0" allowfullscreen></iframe>
+						<a href="https://www.tiktok.com/@ben.gimenez_ap/video/7601920673308478727" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
+					</div>
+					<div class="tiktok-card">
+						<iframe src="https://www.tiktok.com/embed/7597963033742249272" frameborder="0" allowfullscreen></iframe>
+						<a href="https://www.tiktok.com/@ben.gimenez_ap/video/7597963033742249272" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
+					</div>
+					<div class="tiktok-card">
+						<iframe src="https://www.tiktok.com/embed/7593036796968144136" frameborder="0" allowfullscreen></iframe>
+						<a href="https://www.tiktok.com/@ben.gimenez_ap/video/7593036796968144136" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
+					</div>
+					<div class="tiktok-card">
+						<iframe src="https://www.tiktok.com/embed/7584169669569924370" frameborder="0" allowfullscreen></iframe>
+						<a href="https://www.tiktok.com/@ben.gimenez_ap/video/7584169669569924370" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="quote-section">
+				<h2>"OF ALL THOSE<br>WHO CAME,<br>HE IS THE ONE WHO<br>STANDS OUT THE MOST."</h2>
+				<p style="margin-top:30px;">
+					<a href="https://www.instagram.com/mv_kartracing/" target="_blank" style="color:#ffffff; font-size: 1.2rem; text-decoration: underline;">
+						Martin Videla - MV Kart Racing
+					</a>
+				</p>
+			</section>
+
+			<div class="mantra-phrase">
+				<h3>FAIL, LEARN, GROW.</h3>
+			</div>
+
+			<div class="side-name">BENJAMIN<br>GIMENEZ</div>
+
+			<footer id="footer-new">
+				<div class="footer-grid">
+					<div>
+						<h3 style="color:#ff0000; font-weight:900;">FOLLOW ME</h3>
+						<p><a href="https://www.instagram.com/ben.gimenez_ap/">Instagram</a></p>
+						<p><a href="https://www.tiktok.com/@ben.gimenez_ap">TikTok</a></p>
+						<p><a href="https://www.facebook.com/profile.php?id=61585290110281">Facebook</a></p>
+						<p><a href="https://www.youtube.com/@ben.gimenez">YouTube</a></p>
+					</div>
+					<div>
+						<h3 style="color:#ff0000; font-weight:900;">CONTACT ME</h3>
+						<p>Email: ben.gimenez.contact@gmail.com</p>
+						<p>Phone: +54 11 21862872</p>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<div id="biography" class="view">
+			<div class="bio-container">
+				<h1 class="bio-header">BIOGRAPHY</h1>
+				
+				<div class="bio-subtitle">THE BEGINNING</div>
+				<p class="bio-paragraph">
+					My passion for cars began when I was little, when my father would take me in his bus. I started seeing a lot of cars and became interested; today I'm passionate about anything with an internal combustion engine. Soon, I decided to take the plunge and try a go-kart for the first time. I loved it and decided that's what I would do for the rest of my life from that day forward. For me, driving isn't just about speed; it's about discipline, falls, and the drive to improve lap after lap.
+				</p>
+				
+				<div class="bio-subtitle">CURRENT STATUS</div>
+				<p class="bio-paragraph">
+					Currently, I'm not competing in any category. But I'm training hard to perfect my technique and improve session after session, preparing to compete in the <strong>"APAK"</strong> category under the <strong>FRAD Metropolitana.</strong>
+				</p>
+
+				<div class="bio-subtitle">THE FUTURE: 2027</div>
+				<p class="bio-paragraph">
+					My eyes are set on the <strong>Super A Category for the 2027 season</strong>. This is the next major step in my career, and my training regimen—both physical and on the simulator—is fully focused on being ready for that challenge.
+				</p>
+
+				<a href="#home" class="btn-router" style="margin-top: 50px;">BACK</a>
+			</div>
+		</div>
+
+		<script>
+			function handleRouting() {
+				const hash = window.location.hash.slice(1) || 'home';
+				document.querySelectorAll('.view').forEach(view => {
+					view.classList.remove('active');
+					view.style.display = 'none'; 
+				});
+				const targetView = document.getElementById(hash);
+				if (targetView) {
+					targetView.style.display = 'block'; 
+					setTimeout(() => { targetView.classList.add('active'); }, 10);
+					window.scrollTo(0, 0); 
+				} else {
+					const home = document.getElementById('home');
+					home.style.display = 'block';
+					setTimeout(() => { home.classList.add('active'); }, 10);
+				}
+			}
+			window.addEventListener('hashchange', handleRouting);
+			window.addEventListener('load', handleRouting);
+		</script>
+
+	</body>
+</html>
