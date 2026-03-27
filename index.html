@@ -8,9 +8,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			/* =========================================
-			   VARIABLES Y TEMAS
-			   ========================================= */
+			/* --- VARIABLES Y TEMAS --- */
 			:root {
 				--bg-color: #000000;
 				--text-color: #ffffff;
@@ -31,7 +29,6 @@
 				--btn-hover-text: #ffffff;
 			}
 
-			/* --- ESTILOS GENERALES --- */
 			body, html { 
 				margin: 0; padding: 0; 
 				background-color: var(--bg-color) !important; 
@@ -42,15 +39,8 @@
 				height: 100%;
 			}
 
-			/* --- CONTROLES SUPERIORES (OPTIMIZADO) --- */
-			.top-controls {
-				position: fixed;
-				top: 20px;
-				right: 20px;
-				z-index: 10000;
-				display: flex;
-				gap: 10px;
-			}
+			/* --- CONTROLES SUPERIORES --- */
+			.top-controls { position: fixed; top: 20px; right: 20px; z-index: 10000; display: flex; gap: 10px; }
 			.control-btn {
 				background: var(--box-transparent);
 				color: var(--text-color);
@@ -62,18 +52,10 @@
 				border-radius: 5px;
 				transition: all 0.3s ease;
 				backdrop-filter: blur(5px);
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				text-align: center;
 				min-width: 100px;
 			}
-			.control-btn:hover {
-				background: var(--accent-color);
-				color: var(--btn-hover-text);
-			}
+			.control-btn:hover { background: var(--accent-color); color: var(--btn-hover-text); }
 
-			/* --- LOGO FLOTANTE --- */
 			.floating-logo { position: fixed; bottom: 20px; right: 20px; width: 100px; z-index: 9999; }
 
 			/* --- IDIOMAS --- */
@@ -86,87 +68,43 @@
 			.view.active { display: block; opacity: 1; animation: fadeIn 0.8s ease forwards; }
 			@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-			/* --- HERO SECTION (SIN BORDES) --- */
-			#hero-header { 
-				position: relative; 
-				height: 100vh;
-				width: 100%; 
-				display: flex; 
-				align-items: center; 
-				overflow: hidden; 
-				background: #000; 
-			}
-			#hero-header video { 
-				position: absolute; 
-				top: 50%; left: 50%; 
-				min-width: 100%; min-height: 100%; 
-				width: auto; height: auto; 
-				z-index: 1; 
-				transform: translate(-50%, -50%); 
-				object-fit: cover;
-			}
+			/* --- HOME SECTIONS --- */
+			#hero-header { position: relative; height: 100vh; width: 100%; display: flex; align-items: center; overflow: hidden; background: #000; }
+			#hero-header video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: 1; transform: translate(-50%, -50%); object-fit: cover; }
 			.video-overlay-text { position: relative; z-index: 2; padding-left: 5%; width: 90%; }
-			.video-overlay-text h2 { 
-				color: var(--accent-color) !important; 
-				font-size: clamp(3rem, 12vw, 9.5rem) !important; 
-				line-height: 0.85; font-weight: 900; text-transform: uppercase; margin: 0;
-				text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-			}
+			.video-overlay-text h2 { color: var(--accent-color) !important; font-size: clamp(3rem, 12vw, 9.5rem) !important; line-height: 0.85; font-weight: 900; text-transform: uppercase; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
 
-			/* --- SECCIÓN ABOUT --- */
-			.about-section { 
-				padding: 100px 0; 
-				background: url('images/presentacion.jpg') no-repeat center center; 
-				background-size: cover !important; 
-				min-height: 80vh; display: flex; align-items: center; border-top: 5px solid var(--accent-color); 
-			}
-			.about-content { 
-				background: var(--box-transparent);
-				padding: 40px; margin-left: 5%; max-width: 600px; 
-				border-left: 5px solid var(--accent-color); 
-			}
+			.about-section { padding: 100px 0; background: url('images/presentacion.jpg') no-repeat center center; background-size: cover !important; min-height: 80vh; display: flex; align-items: center; border-top: 5px solid var(--accent-color); }
+			.about-content { background: var(--box-transparent); padding: 40px; margin-left: 5%; max-width: 600px; border-left: 5px solid var(--accent-color); }
 
 			/* --- TIKTOK FEED (ESTILO PORTE) --- */
 			.video-section { padding: 80px 5%; background: var(--bg-color); text-align: center; }
-			
-			.social-header-icons {
-				display: flex; justify-content: center; gap: 15px; margin-bottom: 20px;
-			}
-			.social-header-icons a {
-				background: #333; color: white; width: 45px; height: 45px;
-				display: flex; align-items: center; justify-content: center;
-				border-radius: 10px; font-size: 1.4rem; text-decoration: none;
-			}
-
-			.profile-header-porte {
-				display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 40px;
-			}
+			.social-header-icons { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; }
+			.social-header-icons a { background: #333; color: white; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 10px; font-size: 1.4rem; text-decoration: none; }
+			.profile-header-porte { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 40px; }
 			.profile-pic-mini { width: 70px; height: 70px; border-radius: 50%; border: 2px solid var(--accent-color); }
 			.profile-info-text { text-align: left; }
 			.profile-name { display: block; font-weight: 900; font-size: 1.3rem; }
 			.profile-handle { display: block; font-size: 0.9rem; opacity: 0.7; }
 			.btn-follow-porte { background: #0095f6; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; }
 
-			.tiktok-grid-porte {
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				gap: 5px;
-				max-width: 1000px;
-				margin: 0 auto;
-			}
-			.tiktok-item { aspect-ratio: 9 / 16; background: #000; overflow: hidden; }
+			.tiktok-grid-porte { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; max-width: 1000px; margin: 0 auto; }
+			.tiktok-item { aspect-ratio: 9 / 16; background: #000; overflow: hidden; border: 1px solid var(--card-border); }
 			.tiktok-item iframe { width: 100%; height: 100%; border: none; }
 
-			/* --- MANTRA Y NOMBRE --- */
-			.mantra-phrase { text-align: center; padding: 60px 0; }
-			.mantra-phrase h3 { font-size: clamp(1.5rem, 5vw, 3rem); font-weight: 900; letter-spacing: 5px; }
-			.side-name { color: var(--accent-color) !important; font-size: clamp(4rem, 15vw, 10rem); font-weight: 900; line-height: 0.8; padding: 50px 5%; }
+			.mantra-phrase { text-align: center; padding: 60px 0; background: var(--bg-color); }
+			.mantra-phrase h3 { font-size: clamp(1.5rem, 5vw, 3rem); font-weight: 900; letter-spacing: 5px; color: var(--text-color); margin: 0; }
+			.side-name { color: var(--accent-color) !important; font-size: clamp(4rem, 15vw, 10rem); font-weight: 900; line-height: 0.8; padding: 50px 5%; text-transform: uppercase; }
 
-			/* --- RESPONSIVE MÓVIL --- */
+			/* --- ESTILOS BIOGRAFÍA --- */
+			#biography { padding-top: 150px; padding-bottom: 100px; padding-left: 10%; padding-right: 10%; min-height: 100vh; background: var(--bg-color); }
+			.bio-container { max-width: 900px; margin: 0 auto; }
+			.bio-subtitle { font-size: 1.8rem; color: var(--text-color); font-weight: 900; margin-top: 50px; border-left: 5px solid var(--accent-color); padding-left: 20px; }
+			.bio-paragraph { font-size: 1.2rem; color: #ccc; line-height: 1.8; margin-top: 20px; }
+
 			@media screen and (max-width: 768px) {
-				.tiktok-grid-porte { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 0 10px; }
-				.about-content { margin: 0 20px; padding: 30px; }
-				.top-controls { top: 10px; right: 10px; }
+				.tiktok-grid-porte { grid-template-columns: repeat(2, 1fr); }
+				.about-content { margin: 0 20px; }
 				.floating-logo { width: 80px; }
 			}
 		</style>
@@ -181,7 +119,6 @@
 		<img src="images/logo.png" class="floating-logo" alt="Logo">
 
 		<div id="home" class="view active">
-			
 			<section id="hero-header">
 				<video autoplay muted loop playsinline><source src="images/fondo.mp4" type="video/mp4"></video>
 				<div class="video-overlay-text">
@@ -197,7 +134,7 @@
 					<h2 class="lang-es">SOBRE MÍ</h2>
 					<p class="lang-en">15-year-old race car driver chasing professional dreams with passion and hard work.</p>
 					<p class="lang-es">Piloto de 15 años persiguiendo sueños profesionales con pasión y trabajo duro.</p>
-					<a href="#biography" class="control-btn" style="display:inline-block; margin-top:20px;">READ MORE</a>
+					<a href="#biography" class="control-btn" style="display:inline-block; margin-top:20px; text-decoration:none;">READ MORE</a>
 				</div>
 			</section>
 
@@ -207,7 +144,6 @@
 					<a href="https://www.youtube.com/@ben.gimenez" target="_blank"><i class="fab fa-youtube"></i></a>
 					<a href="https://www.tiktok.com/@ben.gimenez_ap" target="_blank"><i class="fab fa-tiktok"></i></a>
 				</div>
-
 				<div class="profile-header-porte">
 					<img src="images/logo.png" class="profile-pic-mini" alt="BG">
 					<div class="profile-info-text">
@@ -216,14 +152,13 @@
 					</div>
 					<a href="https://www.tiktok.com/@ben.gimenez_ap" target="_blank" class="btn-follow-porte">Follow</a>
 				</div>
-
 				<div class="tiktok-grid-porte">
-					<div class="tiktok-item"><iframe src="https://www.tiktok.com/embed/7608039924364741895" allowfullscreen></iframe></div>
-					<div class="tiktok-item"><iframe src="https://www.tiktok.com/embed/7611688841996422408" allowfullscreen></iframe></div>
-					<div class="tiktok-item"><iframe src="https://www.tiktok.com/embed/7604180174090898696" allowfullscreen></iframe></div>
-					<div class="tiktok-item"><iframe src="https://www.tiktok.com/embed/7603053008015887634" allowfullscreen></iframe></div>
-					<div class="tiktok-item"><iframe src="https://www.tiktok.com/embed/7601920673308478727" allowfullscreen></iframe></div>
-					<div class="tiktok-item"><iframe src="https://www.tiktok.com/embed/7597963033742249272" allowfullscreen></iframe></div>
+					<div class="tiktok-item"><iframe src="https://www.tiktok.com/embed/7608039924364741895"></iframe></div>
+					<div class="tiktok-item"><iframe src="https://www.tiktok.com/embed/7611688841996422408"></iframe></div>
+					<div class="tiktok-item"><iframe src="https://www.tiktok.com/embed/7604180174090898696"></iframe></div>
+					<div class="tiktok-item"><iframe src="https://www.tiktok.com/embed/7603053008015887634"></iframe></div>
+					<div class="tiktok-item"><iframe src="https://www.tiktok.com/embed/7601920673308478727"></iframe></div>
+					<div class="tiktok-item"><iframe src="https://www.tiktok.com/embed/7597963033742249272"></iframe></div>
 				</div>
 			</section>
 
@@ -232,11 +167,23 @@
 		</div>
 
 		<div id="biography" class="view">
-			<div style="padding: 150px 10%;">
-				<h1 style="color:var(--accent-color); font-size:4rem; font-weight:900;">BIOGRAPHY</h1>
-				<p style="font-size:1.5rem; line-height:1.8; color:#ccc;">Contenido de biografía...</p>
-				<a href="#home" class="control-btn" style="display:inline-block; margin-top:50px;">BACK</a>
-			</div>
+			<section id="biography">
+				<div class="bio-container">
+					<h1 style="color:var(--accent-color); font-size:clamp(3rem, 6vw, 6rem); font-weight:900; text-transform:uppercase;">Biography</h1>
+					
+					<div class="bio-subtitle lang-en">THE BEGINNING</div>
+					<div class="bio-subtitle lang-es">LOS COMIENZOS</div>
+					<p class="bio-paragraph lang-en">My passion for cars began when I was little... I decided that's what I would do for the rest of my life. For me, driving isn't just about speed; it's about discipline and the drive to improve lap after lap.</p>
+					<p class="bio-paragraph lang-es">Mi pasión por los autos comenzó desde pequeño... decidí que eso es lo que haría por el resto de mi vida. Para mí, manejar no es solo velocidad; se trata de disciplina e impulso para mejorar vuelta tras vuelta.</p>
+
+					<div class="bio-subtitle lang-en">CURRENT STATUS</div>
+					<div class="bio-subtitle lang-es">ESTADO ACTUAL</div>
+					<p class="bio-paragraph lang-en">Currently training hard to perfect my technique, preparing to compete in the "APAK" category.</p>
+					<p class="bio-paragraph lang-es">Actualmente entrenando duro para perfeccionar mi técnica, preparándome para la categoría "APAK".</p>
+
+					<a href="#home" class="control-btn" style="display:inline-block; margin-top:50px; text-decoration:none;">BACK</a>
+				</div>
+			</section>
 		</div>
 
 		<script>
@@ -248,7 +195,6 @@
 			}
 			window.addEventListener('hashchange', handleRouting);
 			window.addEventListener('load', handleRouting);
-
 			function toggleTheme() {
 				document.body.classList.toggle('light-mode');
 				document.getElementById('themeBtn').innerHTML = document.body.classList.contains('light-mode') ? "🌙 DARK" : "☀️ LIGHT";
