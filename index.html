@@ -6,6 +6,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 		<style>
 			/* =========================================
 			   VARIABLES DE COLORES
@@ -264,37 +265,80 @@
 				</div>
 			</div>
 
-			<section class="video-section">
-				<h2 class="lang-en" style="color: var(--accent-color) !important; font-size: 3rem; font-weight: 900; margin-bottom: 30px;">TIKTOK VIDEOS</h2>
-				<h2 class="lang-es" style="color: var(--accent-color) !important; font-size: 3rem; font-weight: 900; margin-bottom: 30px;">VIDEOS TIKTOK</h2>
-				
-				<div class="video-slider">
-					<div class="tiktok-card">
-						<iframe src="https://www.tiktok.com/embed/7604180174090898696" frameborder="0" allowfullscreen></iframe>
-						<a href="https://www.tiktok.com/@ben.gimenez_ap/video/7604180174090898696" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
-					</div>
-					<div class="tiktok-card">
-						<iframe src="https://www.tiktok.com/embed/7603053008015887634" frameborder="0" allowfullscreen></iframe>
-						<a href="https://www.tiktok.com/@ben.gimenez_ap/video/7603053008015887634" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
-					</div>
-					<div class="tiktok-card">
-						<iframe src="https://www.tiktok.com/embed/7601920673308478727" frameborder="0" allowfullscreen></iframe>
-						<a href="https://www.tiktok.com/@ben.gimenez_ap/video/7601920673308478727" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
-					</div>
-					<div class="tiktok-card">
-						<iframe src="https://www.tiktok.com/embed/7597963033742249272" frameborder="0" allowfullscreen></iframe>
-						<a href="https://www.tiktok.com/@ben.gimenez_ap/video/7597963033742249272" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
-					</div>
-					<div class="tiktok-card">
-						<iframe src="https://www.tiktok.com/embed/7593036796968144136" frameborder="0" allowfullscreen></iframe>
-						<a href="https://www.tiktok.com/@ben.gimenez_ap/video/7593036796968144136" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
-					</div>
-					<div class="tiktok-card">
-						<iframe src="https://www.tiktok.com/embed/7584169669569924370" frameborder="0" allowfullscreen></iframe>
-						<a href="https://www.tiktok.com/@ben.gimenez_ap/video/7584169669569924370" target="_blank" class="watch-link">WATCH ON TIKTOK</a>
-					</div>
-				</div>
-			</section>
+			/* ESTILOS TIKTOK FEED - ESTILO PORTE */
+.social-header-icons {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.social-header-icons a {
+    background: #666;
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.profile-header-simple {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+.profile-pic-mini {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-color);
+}
+.profile-info-text { text-align: left; }
+.profile-name { display: block; font-weight: 900; font-size: 1.2rem; }
+.profile-handle { display: block; font-size: 0.9rem; opacity: 0.7; }
+
+.btn-follow-mini {
+    background: #3897f0;
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* GRID DE VIDEOS */
+.tiktok-grid-porte {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas como en la foto */
+    gap: 5px; /* Espacio mínimo entre videos */
+}
+
+.tiktok-item {
+    aspect-ratio: 9 / 16;
+    background: #111;
+    overflow: hidden;
+}
+
+.tiktok-item iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Ajuste Móvil: 2 columnas para que no se vea tan apretado */
+@media screen and (max-width: 768px) {
+    .tiktok-grid-porte {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 10px;
+    }
+}
 
 			<section class="quote-section">
 				<h2 class="lang-en">"OF ALL THOSE<br>WHO CAME,<br>HE IS THE ONE WHO<br>STANDS OUT THE MOST."</h2>
