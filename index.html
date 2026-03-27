@@ -8,9 +8,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			/* =========================================
-			   VARIABLES Y TEMAS
-			   ========================================= */
+			/* --- VARIABLES Y TEMAS --- */
 			:root {
 				--bg-color: #000000;
 				--text-color: #ffffff;
@@ -31,7 +29,6 @@
 				--btn-hover-text: #ffffff;
 			}
 
-			/* --- ESTILOS GENERALES --- */
 			body, html { 
 				margin: 0; padding: 0; 
 				background-color: var(--bg-color) !important; 
@@ -42,15 +39,8 @@
 				height: 100%;
 			}
 
-			/* --- CONTROLES SUPERIORES (OPTIMIZADO) --- */
-			.top-controls {
-				position: fixed;
-				top: 20px;
-				right: 20px;
-				z-index: 10000;
-				display: flex;
-				gap: 10px;
-			}
+			/* --- CONTROLES SUPERIORES --- */
+			.top-controls { position: fixed; top: 20px; right: 20px; z-index: 10000; display: flex; gap: 10px; }
 			.control-btn {
 				background: var(--box-transparent);
 				color: var(--text-color);
@@ -62,18 +52,10 @@
 				border-radius: 5px;
 				transition: all 0.3s ease;
 				backdrop-filter: blur(5px);
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				text-align: center;
 				min-width: 100px;
 			}
-			.control-btn:hover {
-				background: var(--accent-color);
-				color: var(--btn-hover-text);
-			}
+			.control-btn:hover { background: var(--accent-color); color: var(--btn-hover-text); }
 
-			/* --- LOGO FLOTANTE --- */
 			.floating-logo { position: fixed; bottom: 20px; right: 20px; width: 100px; z-index: 9999; }
 
 			/* --- IDIOMAS --- */
@@ -86,16 +68,6 @@
 			.view.active { display: block; opacity: 1; animation: fadeIn 0.8s ease forwards; }
 			@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-			/* --- HERO SECTION (SIN BORDES) --- */
-			#hero-header { 
-				position: relative; 
-				height: 100vh;
-				width: 100%; 
-				display: flex; 
-				align-items: center; 
-				overflow: hidden; 
-				background: #000; 
-			}
-			#hero-header video { 
-				position: absolute; 
-				top
+			/* --- HOME SECTIONS --- */
+			#hero-header { position: relative; height: 100vh; width: 100%; display: flex; align-items: center; overflow: hidden; background: #000; }
+			#hero-header video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: 1; transform: translate(-50%, -50%); object-fit: cover
