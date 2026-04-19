@@ -7,9 +7,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			/* =========================================
-			   VARIABLES DE COLORES
-			   ========================================= */
 			:root {
 				--bg-color: #000000;
 				--text-color: #ffffff;
@@ -30,98 +27,56 @@
 				--btn-hover-text: #ffffff;
 			}
 
-			/* --- ESTILOS GENERALES --- */
-			body, html { 
-				margin: 0; padding: 0; 
-				background-color: var(--bg-color) !important; 
-				color: var(--text-color); 
-				overflow-x: hidden; 
-				font-family: sans-serif; 
-				transition: background-color 0.3s ease, color 0.3s ease;
-				height: 100%;
-			}
+			body, html { margin: 0; padding: 0; background-color: var(--bg-color) !important; color: var(--text-color); overflow-x: hidden; font-family: sans-serif; transition: all 0.3s ease; height: 100%; }
 
-			/* --- CONTROLES SUPERIORES --- */
-			.top-controls {
-				position: fixed;
-				top: 20px;
-				right: 20px;
-				z-index: 10000;
-				display: flex;
-				gap: 10px;
-			}
-			.control-btn {
-				background: var(--box-transparent);
-				color: var(--text-color);
-				border: 1px solid var(--accent-color);
-				padding: 8px 15px;
-				cursor: pointer;
-				font-weight: bold;
-				text-transform: uppercase;
-				border-radius: 5px;
-				transition: all 0.3s ease;
-				backdrop-filter: blur(5px);
-				display: flex; align-items: center; justify-content: center;
-			}
+			/* CONTROLES */
+			.top-controls { position: fixed; top: 20px; right: 20px; z-index: 10000; display: flex; gap: 10px; }
+			.control-btn { background: var(--box-transparent); color: var(--text-color); border: 1px solid var(--accent-color); padding: 8px 15px; cursor: pointer; font-weight: bold; text-transform: uppercase; border-radius: 5px; }
 			.control-btn:hover { background: var(--accent-color); color: var(--btn-hover-text); }
 
-			/* --- SISTEMA DE IDIOMAS (ROBUSTO) --- */
-			.lang-es { display: none !important; }
-			.lang-en { display: inherit; } 
-			body.es-mode .lang-en { display: none !important; }
-			body.es-mode .lang-es { display: inherit; } 
-			body.es-mode span.lang-es { display: inline !important; } 
-			body.es-mode p.lang-es, body.es-mode h1.lang-es, body.es-mode h2.lang-es, body.es-mode h3.lang-es, body.es-mode div.lang-es { display: block !important; }
+			/* SISTEMA DE IDIOMAS SIN DUPLICADOS */
+			.lang-es { display: none; }
+			body.es-mode .lang-en { display: none; }
+			body.es-mode .lang-es { display: block; }
+			body.es-mode span.lang-es { display: inline; }
 
-			/* --- SISTEMA DE SPA (ROUTING) --- */
-			.view { display: none; opacity: 0; transition: opacity 0.5s ease; }
+			/* SPA ROUTING */
+			.view { display: none; opacity: 0; }
 			.view.active { display: block; opacity: 1; animation: fadeIn 0.8s ease forwards; }
 			@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-			/* --- HOME --- */
+			/* HERO & ABOUT */
 			#hero-header { position: relative; height: 100vh; width: 100%; display: flex; align-items: center; overflow: hidden; background: #000; }
-			#hero-header video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: 1; transform: translate(-50%, -50%); object-fit: cover; }
+			#hero-header video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); object-fit: cover; z-index: 1; }
 			.video-overlay-text { position: relative; z-index: 2; padding-left: 5%; width: 90%; }
-			.video-overlay-text h2 { color: var(--accent-color) !important; font-size: clamp(3rem, 12vw, 9.5rem) !important; line-height: 0.85; font-weight: 900; text-transform: uppercase; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+			.video-overlay-text h2 { color: var(--accent-color) !important; font-size: clamp(3rem, 12vw, 9.5rem) !important; line-height: 0.85; font-weight: 900; text-transform: uppercase; margin: 0; }
 			
-			.about-section { position: relative; padding: 100px 0; background: url('images/presentacion.jpg') no-repeat center center; background-size: cover !important; min-height: 80vh; display: flex; align-items: center; border-top: 5px solid var(--accent-color); }
+			.about-section { position: relative; padding: 100px 0; background: url('images/presentacion.jpg') no-repeat center center; background-size: cover; min-height: 80vh; display: flex; align-items: center; border-top: 5px solid var(--accent-color); }
 			.about-content { background: var(--box-transparent); padding: 50px; margin-left: 5%; max-width: 600px; border-left: 5px solid var(--accent-color); }
 			
-			.marquee-container { background: var(--accent-color); padding: 15px 0; overflow: hidden; white-space: nowrap; }
-			.marquee-text { display: inline-block; animation: scroll-text 15s linear infinite; font-weight: 900; font-size: 1.5rem; text-transform: uppercase; color: #000; }
-			@keyframes scroll-text { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+			.btn-router { display: inline-block; margin-top: 20px; padding: 15px 40px; border: 2px solid var(--accent-color); color: var(--text-color) !important; text-decoration: none; font-weight: 900; text-transform: uppercase; transition: 0.3s; }
+			.btn-router:hover { background: var(--accent-color); color: var(--btn-hover-text) !important; }
 
-			/* --- TIKTOK PROFILE SECTION --- */
+			/* TIKTOK SECTION */
 			.tiktok-profile-section { padding: 80px 5%; background: var(--bg-color); text-align: center; }
-			.tiktok-avatar { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--accent-color); object-fit: cover; }
-			
-			/* ESTADÍSTICAS CORREGIDAS (DINÁMICAS SEGÚN MODO) */
-			.tiktok-stats { display: flex; justify-content: center; gap: clamp(15px, 5vw, 40px); margin: 30px 0; }
-			.tiktok-stats strong { 
-				display: block; 
-				font-size: 1.4rem; 
-				font-weight: 900; 
-				color: var(--text-color) !important; /* Resuelve el camuflaje en modo claro */
-				transition: color 0.3s ease;
-			}
-			.tiktok-stats span { display: block; font-size: 0.9rem; text-transform: uppercase; font-weight: 600; color: var(--text-color); opacity: 0.7; }
+			.tiktok-avatar { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--accent-color); }
+			.tiktok-stats { display: flex; justify-content: center; gap: 30px; margin: 30px 0; }
+			.tiktok-stats strong { display: block; font-size: 1.5rem; font-weight: 900; color: var(--text-color) !important; }
+			.tiktok-stats span { display: block; font-size: 0.9rem; text-transform: uppercase; opacity: 0.7; }
+			.tiktok-follow-btn { display: inline-block; padding: 12px 35px; background: var(--accent-color); color: #fff; font-weight: 900; text-decoration: none; border-radius: 6px; }
 
-			.tiktok-follow-btn { display: inline-block; padding: 12px 35px; background: var(--accent-color); color: #fff; font-weight: 900; text-decoration: none; border-radius: 6px; transition: 0.3s; text-transform: uppercase; }
-
-			.video-slider { display: flex; gap: 20px; overflow-x: auto; padding: 20px 5%; scrollbar-width: thin; scrollbar-color: var(--accent-color) var(--bg-color); scroll-snap-type: x mandatory; }
-			.tiktok-card { min-width: 300px; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--card-border); padding: 10px; text-align: center; scroll-snap-align: center; }
+			.video-slider { display: flex; gap: 20px; overflow-x: auto; padding: 20px 5%; scroll-snap-type: x mandatory; }
+			.tiktok-card { min-width: 300px; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--card-border); padding: 10px; scroll-snap-align: center; }
 			.tiktok-card iframe { width: 100%; height: 580px; border-radius: 8px; }
 
-			/* --- BIOGRAFÍA --- */
-			#biography { padding-top: 180px; padding-bottom: 100px; padding-left: 10%; padding-right: 10%; min-height: 100vh; background: var(--bg-color); }
+			/* BIOGRAPHY */
+			#biography { padding: 180px 10% 100px 10%; min-height: 100vh; background: var(--bg-color); }
 			.bio-header { font-size: clamp(3rem, 6vw, 6rem); color: var(--accent-color); font-weight: 900; text-transform: uppercase; border-bottom: 2px solid var(--card-border); margin-bottom: 50px; }
-			.bio-subtitle { font-size: 1.8rem; color: var(--text-color); font-weight: 900; margin-top: 60px; border-left: 5px solid var(--accent-color); padding-left: 20px; text-transform: uppercase; }
-			.bio-paragraph { font-size: 1.3rem; color: var(--text-color); opacity: 0.8; line-height: 1.8; margin-bottom: 30px; }
+			.bio-subtitle { font-size: 1.8rem; color: var(--text-color); font-weight: 900; margin-top: 40px; border-left: 5px solid var(--accent-color); padding-left: 20px; text-transform: uppercase; }
+			.bio-paragraph { font-size: 1.2rem; line-height: 1.8; margin-bottom: 30px; opacity: 0.8; }
 
 			@media screen and (max-width: 768px) {
 				.about-content { margin: 0 20px; padding: 30px; }
-				.tiktok-stats strong { font-size: 1.1rem; }
-				.tiktok-stats span { font-size: 0.7rem; }
 				#biography { padding-top: 120px; }
 			}
 		</style>
@@ -157,10 +112,6 @@
 				</div>
 			</section>
 
-			<div class="marquee-container">
-				<div class="marquee-text">BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • BENJAMIN GIMENEZ • </div>
-			</div>
-
 			<section class="tiktok-profile-section">
 				<div class="tiktok-profile">
 					<img src="images/pfp.png" class="tiktok-avatar" alt="profile">
@@ -176,50 +127,35 @@
 				</div>
 
 				<div class="video-slider">
-					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7574451635900910866" frameborder="0" allowfullscreen></iframe></div>
-					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7574947624684358919" frameborder="0" allowfullscreen></iframe></div>
-					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7575373676825103624" frameborder="0" allowfullscreen></iframe></div>
-					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7584169669569924370" frameborder="0" allowfullscreen></iframe></div>
-					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7593036796968144136" frameborder="0" allowfullscreen></iframe></div>
-					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7597963033742249272" frameborder="0" allowfullscreen></iframe></div>
-					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7601920673308478727" frameborder="0" allowfullscreen></iframe></div>
-					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7603053008015887634" frameborder="0" allowfullscreen></iframe></div>
-					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7604180174090898696" frameborder="0" allowfullscreen></iframe></div>
-					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7608039924364741895" frameborder="0" allowfullscreen></iframe></div>
-					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7611688841996422408" frameborder="0" allowfullscreen></iframe></div>
+					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7574451635900910866" frameborder="0"></iframe></div>
+					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7574947624684358919" frameborder="0"></iframe></div>
+					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7575373676825103624" frameborder="0"></iframe></div>
+					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7584169669569924370" frameborder="0"></iframe></div>
+					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7593036796968144136" frameborder="0"></iframe></div>
+					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7597963033742249272" frameborder="0"></iframe></div>
+					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7601920673308478727" frameborder="0"></iframe></div>
+					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7603053008015887634" frameborder="0"></iframe></div>
+					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7604180174090898696" frameborder="0"></iframe></div>
+					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7608039924364741895" frameborder="0"></iframe></div>
+					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7611688841996422408" frameborder="0"></iframe></div>
 				</div>
 			</section>
-
-			<footer id="footer-new">
-				<div class="footer-grid">
-					<div>
-						<h3 style="color:var(--accent-color); font-weight:900;">FOLLOW ME</h3>
-						<p><a href="https://www.instagram.com/ben.gimenez_ap/">Instagram</a></p>
-						<p><a href="https://www.tiktok.com/@ben.gimenez_ap">TikTok</a></p>
-					</div>
-					<div>
-						<h3 class="lang-en" style="color:var(--accent-color); font-weight:900;">CONTACT ME</h3>
-						<h3 class="lang-es" style="color:var(--accent-color); font-weight:900;">CONTACTO</h3>
-						<p>Email: ben.gimenez.contact@gmail.com</p>
-					</div>
-				</div>
-			</footer>
 		</div>
 
 		<div id="biography" class="view">
 			<div class="bio-container">
-				<h1 class="bio-header lang-es">BIOGRAFÍA</h1>
 				<h1 class="bio-header lang-en">BIOGRAPHY</h1>
-				<p class="bio-paragraph lang-es">Mi pasión por los autos comenzó desde pequeño...</p>
-				<p class="bio-paragraph lang-en">My passion for cars began when I was little...</p>
-				<a href="#home" class="btn-router"><span class="lang-es">VOLVER</span><span class="lang-en">BACK</span></a>
+				<h1 class="bio-header lang-es">BIOGRAFÍA</h1>
+				<p class="bio-paragraph lang-en">My passion for cars began when I was little... (etc)</p>
+				<p class="bio-paragraph lang-es">Mi pasión por los autos comenzó desde pequeño... (etc)</p>
+				<a href="#home" class="btn-router"><span class="lang-en">BACK</span><span class="lang-es">VOLVER</span></a>
 			</div>
 		</div>
 
 		<script>
 			function toggleTheme() {
-				const body = document.body; body.classList.toggle('light-mode');
-				document.getElementById('themeBtn').innerHTML = body.classList.contains('light-mode') ? "🌙 DARK" : "☀️ LIGHT";
+				document.body.classList.toggle('light-mode');
+				document.getElementById('themeBtn').innerHTML = document.body.classList.contains('light-mode') ? "🌙 DARK" : "☀️ LIGHT";
 			}
 			function toggleLang() { document.body.classList.toggle('es-mode'); }
 			function handleRouting() {
