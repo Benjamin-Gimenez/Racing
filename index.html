@@ -38,7 +38,6 @@
 				overflow-x: hidden; 
 				font-family: sans-serif; 
 				transition: background-color 0.3s ease, color 0.3s ease;
-				/* CORRECCIÓN 1: Asegurar que no haya márgenes que creen franjas */
 				height: 100%;
 			}
 
@@ -62,7 +61,6 @@
 				border-radius: 5px;
 				transition: all 0.3s ease;
 				backdrop-filter: blur(5px);
-				/* CORRECCIÓN 3: Centrar texto */
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -72,27 +70,24 @@
 				background: var(--accent-color);
 				color: var(--btn-hover-text);
 			}
-			/* CORRECCIÓN 3: Evitar que el botón de idioma se quede pegado en rojo */
+
 			#langBtn:active, #langBtn:focus {
 				background: var(--box-transparent);
 				color: var(--text-color);
-				outline: none; /* Opcional: quitar el contorno de foco por defecto */
+				outline: none; 
 			}
-			/* Mantener el hover normal */
 			#langBtn:hover {
 				background: var(--accent-color);
 				color: var(--btn-hover-text);
 			}
 
-
-			/* LOGO FLOTANTE */
 			.floating-logo { position: fixed; bottom: 20px; right: 20px; width: 120px; z-index: 9999; }
 
 			/* SISTEMA DE IDIOMAS */
 			.lang-es { display: none; }
 			body.es-mode .lang-en { display: none; }
 			body.es-mode .lang-es { display: inline; }
-			body.es-mode div.lang-es, body.es-mode p.lang-es, body.es-mode h1.lang-es, body.es-mode h2.lang-es, body.es-mode h3.lang-es { display: block; }
+			body.es-mode div.lang-es, body.es-mode p.lang-es, body.es-mode h1.lang-es, body.es-mode h2.lang-es, body.es-mode h3.lang-es, body.es-mode span.lang-es { display: block; }
 
 			/* --- SISTEMA DE SPA (ROUTING) --- */
 			.view { display: none; opacity: 0; transition: opacity 0.5s ease; }
@@ -102,7 +97,7 @@
 			/* --- HOME --- */
 			#hero-header { 
 				position: relative; 
-				height: 100vh; /* Ocupa toda la altura */
+				height: 100vh; 
 				width: 100%; 
 				display: flex; 
 				align-items: center; 
@@ -119,7 +114,7 @@
 				height: auto; 
 				z-index: 1; 
 				transform: translate(-50%, -50%); 
-				object-fit: cover; /* CORRECCIÓN 1: Asegura que el video cubra todo sin bordes */
+				object-fit: cover; 
 			}
 			
 			.video-overlay-text { position: relative; z-index: 2; padding-left: 5%; width: 90%; }
@@ -149,7 +144,6 @@
 			}
 			.about-content h2 { color: var(--text-color) !important; font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; }
 
-			/* BOTONES */
 			.btn-router { 
 				display: inline-block; margin-top: 20px; cursor: pointer; padding: 15px 40px; 
 				border: 2px solid var(--accent-color); background: transparent; 
@@ -162,41 +156,79 @@
 			.marquee-text { display: inline-block; animation: scroll-text 15s linear infinite; font-weight: 900; font-size: 1.5rem; text-transform: uppercase; color: #000; }
 			@keyframes scroll-text { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-			.video-section { padding: 80px 5%; background: var(--bg-color); }
-			/* CORRECCIÓN 4: Aumentar padding lateral para facilitar el deslizamiento en móvil */
+			/* --- TIKTOK SECTION --- */
+			.tiktok-profile-section {
+				padding: 80px 5%;
+				background: var(--bg-color);
+				text-align: center;
+			}
+			.tiktok-profile { margin-bottom: 40px; }
+			.tiktok-avatar {
+				width: 110px; height: 110px;
+				border-radius: 50%; border: 3px solid var(--accent-color);
+				object-fit: cover;
+			}
+			.tiktok-user { opacity: 0.7; margin-bottom: 15px; }
+			
+			/* ESTADÍSTICAS MEJORADAS */
+			.tiktok-stats {
+				display: flex;
+				justify-content: center;
+				gap: clamp(15px, 5vw, 40px);
+				margin: 30px 0;
+			}
+			.tiktok-stats div {
+				text-align: center;
+				color: var(--text-color); /* Ahora responde al modo claro/oscuro */
+			}
+			.tiktok-stats strong {
+				display: block;
+				font-size: 1.8rem; /* Más grande */
+				font-weight: 900;
+			}
+			.tiktok-stats span {
+				display: block;
+				font-size: 1rem; /* Más grande */
+				text-transform: uppercase;
+				font-weight: 600;
+				opacity: 0.9;
+			}
+
+			.tiktok-follow-btn {
+				display: inline-block;
+				padding: 12px 35px;
+				background: var(--accent-color);
+				color: #fff;
+				font-weight: 900;
+				text-decoration: none;
+				border-radius: 6px;
+				transition: 0.3s;
+				text-transform: uppercase;
+			}
+			.tiktok-follow-btn:hover { transform: scale(1.05); }
+
 			.video-slider { 
-				display: flex; 
-				gap: 20px; 
-				overflow-x: auto; 
-				padding: 20px 5%; /* Aumentado padding lateral */
-				scrollbar-width: thin; 
-				scrollbar-color: var(--accent-color) var(--bg-color); 
-				/* Opcional: scroll-snap para un deslizamiento más controlado */
+				display: flex; gap: 20px; overflow-x: auto; padding: 20px 5%; 
+				scrollbar-width: thin; scrollbar-color: var(--accent-color) var(--bg-color);
 				scroll-snap-type: x mandatory;
 			}
 			.tiktok-card { 
-				min-width: 300px; /* Ligeramente reducido para dar más espacio */
-				background: var(--card-bg); 
+				min-width: 300px; background: var(--card-bg); 
 				border-radius: 12px; border: 1px solid var(--card-border); 
-				padding: 10px; text-align: center; 
-				/* Opcional: scroll-snap-align */
-				scroll-snap-align: center;
+				padding: 10px; text-align: center; scroll-snap-align: center;
 			}
 			.tiktok-card iframe { width: 100%; height: 580px; border-radius: 8px; }
-			.watch-link { display: block; margin-top: 15px; color: var(--accent-color) !important; font-weight: 900; text-decoration: none; font-size: 0.9rem; }
 
+			/* RESTO DE SECCIONES */
 			.quote-section { padding: 120px 20px; text-align: center; background: var(--bg-color); }
 			.quote-section h2 { color: var(--text-color) !important; font-size: clamp(2rem, 5vw, 4rem); line-height: 1.1; font-weight: 900; text-transform: uppercase; }
-			
-			/* FRASE MANTRA */
 			.mantra-phrase { text-align: center; background: var(--bg-color); padding: 10px 0 60px 0; }
 			.mantra-phrase h3 { color: var(--text-color); font-size: clamp(1.5rem, 4vw, 3rem); font-weight: 900; text-transform: uppercase; letter-spacing: 5px; margin: 0; }
-
 			.side-name { color: var(--accent-color) !important; font-size: clamp(4rem, 15vw, 10rem); font-weight: 900; line-height: 0.8; text-transform: uppercase; padding: 50px 5%; }
 			#footer-new { padding: 80px 5%; background: var(--bg-color); border-top: 1px solid var(--card-border); }
 			.footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 
-			/* --- BIOGRAFÍA --- */
+			/* BIOGRAFÍA */
 			#biography { padding-top: 180px; padding-bottom: 100px; padding-left: 10%; padding-right: 10%; min-height: 100vh; background: var(--bg-color); }
 			.bio-container { max-width: 1000px; margin: 0 auto; }
 			.bio-header { font-size: clamp(3rem, 6vw, 6rem); color: var(--accent-color); font-weight: 900; text-transform: uppercase; border-bottom: 2px solid var(--card-border); margin-bottom: 50px; padding-bottom: 20px; }
@@ -210,12 +242,9 @@
 				#biography { padding-top: 120px; padding-left: 20px; padding-right: 20px; }
 				.bio-header { font-size: 2.5rem; margin-bottom: 30px; }
 				.top-controls { top: 10px; right: 10px; }
-				/* CORRECCIÓN 2: Asegurar que el título de videos no se cruce en móvil */
-				.video-section h2 {
-					word-wrap: break-word; /* Permite que las palabras largas se rompan */
-					hyphens: auto; /* Añade guiones si es necesario */
-					font-size: 2.5rem !important; /* Reducir un poco el tamaño en móvil si es necesario */
-				}
+				.video-section h2 { word-wrap: break-word; hyphens: auto; font-size: 2.5rem !important; }
+				.tiktok-stats strong { font-size: 1.4rem; }
+				.tiktok-stats span { font-size: 0.8rem; }
 			}
 		</style>
 	</head>
@@ -237,7 +266,6 @@
 				<div class="video-overlay-text">
 					<h2 class="lang-en">Eyes on<br>the goal,<br>mind<br>disciplined.</h2>
 					<h2 class="lang-es">Ojos en<br>la meta,<br>mente<br>disciplinada.</h2>
-					
 					<p class="lang-en">BENJAMIN GIMENEZ • RACE CAR DRIVER</p>
 					<p class="lang-es">BENJAMIN GIMENEZ • PILOTO DE CARRERAS</p>
 				</div>
@@ -247,10 +275,8 @@
 				<div class="about-content">
 					<h2 class="lang-en">ABOUT ME</h2>
 					<h2 class="lang-es">SOBRE MÍ</h2>
-					
 					<p class="lang-en">My name is Benjamin Gimenez, a dedicated and ambitious race car driver. At 15 years old, I pursue my dream of becoming a professional driver with passion, sacrifice, and hard work.</p>
 					<p class="lang-es">Me llamo Benjamín Giménez, un piloto dedicado y ambicioso. A mis 15 años, persigo mi sueño de convertirme en piloto profesional con pasión, sacrificio y trabajo duro.</p>
-					
 					<a href="#biography" class="btn-router">
 						<span class="lang-en">READ MORE</span>
 						<span class="lang-es">LEER MÁS</span>
@@ -265,107 +291,47 @@
 			</div>
 
 			<section class="tiktok-profile-section">
-				
-	<div class="tiktok-profile">
-		<img src="images/pfp.png" class="tiktok-avatar" alt="profile">
+				<div class="tiktok-profile">
+					<img src="images/pfp.png" class="tiktok-avatar" alt="profile">
+					<p class="tiktok-user">@ben.gimenez_ap</p>
 
-		<p class="tiktok-user">@ben.gimenez_ap</p>
+					<div class="tiktok-stats">
+						<div>
+							<strong>2706</strong>
+							<span class="lang-es">Me gusta</span>
+							<span class="lang-en">Likes</span>
+						</div>
+						<div>
+							<strong>402</strong>
+							<span class="lang-es">Seguidores</span>
+							<span class="lang-en">Followers</span>
+						</div>
+						<div>
+							<strong>281</strong>
+							<span class="lang-es">Siguiendo</span>
+							<span class="lang-en">Following</span>
+						</div>
+					</div>
 
-		<div class="tiktok-stats">
-			<div><strong>2706</strong><span>Me gusta</span></div>
-			<div><strong>402</strong><span>Seguidores</span></div>
-			<div><strong>281</strong><span>Siguiendo</span></div>
-		</div>
+					<a href="https://www.tiktok.com/@ben.gimenez_ap" target="_blank" class="tiktok-follow-btn">
+						<span class="lang-es">SEGUIR</span>
+						<span class="lang-en">FOLLOW</span>
+					</a>
+				</div>
 
-		<a href="https://www.tiktok.com/@ben.gimenez_ap" target="_blank" class="tiktok-follow-btn">
-			SEGUIR
-		</a>
-	</div>
-
-	<div class="video-slider">
-		<div class="tiktok-card">
-			<iframe src="https://www.tiktok.com/embed/7604180174090898696" frameborder="0" allowfullscreen></iframe>
-		</div>
-		<div class="tiktok-card">
-			<iframe src="https://www.tiktok.com/embed/7603053008015887634" frameborder="0" allowfullscreen></iframe>
-		</div>
-		<div class="tiktok-card">
-			<iframe src="https://www.tiktok.com/embed/7601920673308478727" frameborder="0" allowfullscreen></iframe>
-		</div>
-		<div class="tiktok-card">
-			<iframe src="https://www.tiktok.com/embed/7597963033742249272" frameborder="0" allowfullscreen></iframe>
-		</div>
-		<div class="tiktok-card">
-			<iframe src="https://www.tiktok.com/embed/7593036796968144136" frameborder="0" allowfullscreen></iframe>
-		</div>
-		<div class="tiktok-card">
-			<iframe src="https://www.tiktok.com/embed/7584169669569924370" frameborder="0" allowfullscreen></iframe>
-		</div>
-	</div>
-
-</section>
-
-<style>
-.tiktok-profile-section {
-	padding: 80px 5%;
-	background: var(--bg-color);
-	text-align: center;
-}
-
-.tiktok-profile {
-	margin-bottom: 40px;
-}
-
-.tiktok-avatar {
-	width: 110px;
-	height: 110px;
-	border-radius: 50%;
-	border: 3px solid var(--accent-color);
-	object-fit: cover;
-}
-
-.tiktok-user {
-	opacity: 0.7;
-	margin-bottom: 15px;
-}
-
-.tiktok-stats {
-	display: flex;
-	justify-content: center;
-	gap: 30px;
-	margin: 20px 0;
-}
-
-.tiktok-stats div {
-	text-align: center;
-}
-
-.tiktok-stats span {
-	display: block;
-	font-size: 0.8rem;
-	opacity: 0.6;
-}
-
-.tiktok-follow-btn {
-	display: inline-block;
-	padding: 10px 25px;
-	background: var(--accent-color);
-	color: #fff;
-	font-weight: bold;
-	text-decoration: none;
-	border-radius: 6px;
-	transition: 0.3s;
-}
-
-.tiktok-follow-btn:hover {
-	transform: scale(1.05);
-}
-</style>
+				<div class="video-slider">
+					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7604180174090898696" frameborder="0" allowfullscreen></iframe></div>
+					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7603053008015887634" frameborder="0" allowfullscreen></iframe></div>
+					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7601920673308478727" frameborder="0" allowfullscreen></iframe></div>
+					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7597963033742249272" frameborder="0" allowfullscreen></iframe></div>
+					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7593036796968144136" frameborder="0" allowfullscreen></iframe></div>
+					<div class="tiktok-card"><iframe src="https://www.tiktok.com/embed/7584169669569924370" frameborder="0" allowfullscreen></iframe></div>
+				</div>
+			</section>
 
 			<section class="quote-section">
 				<h2 class="lang-en">"OF ALL THOSE<br>WHO CAME,<br>HE IS THE ONE WHO<br>STANDS OUT THE MOST."</h2>
 				<h2 class="lang-es">"DE TODOS<br>LOS QUE VINIERON,<br>ÉL ES QUIEN MÁS<br>SE DESTACA."</h2>
-				
 				<p style="margin-top:30px;">
 					<a href="https://www.instagram.com/mv_kartracing/" target="_blank" style="color:var(--text-color); font-size: 1.2rem; text-decoration: underline;">
 						Martin Videla - MV Kart Racing
@@ -392,7 +358,6 @@
 					<div>
 						<h3 class="lang-en" style="color:var(--accent-color); font-weight:900;">CONTACT ME</h3>
 						<h3 class="lang-es" style="color:var(--accent-color); font-weight:900;">CONTACTO</h3>
-						
 						<p>Email: ben.gimenez.contact@gmail.com</p>
 						<p>Phone: +54 11 21862872</p>
 					</div>
@@ -404,37 +369,11 @@
 			<div class="bio-container">
 				<h1 class="bio-header lang-en">BIOGRAPHY</h1>
 				<h1 class="bio-header lang-es">BIOGRAFÍA</h1>
-				
 				<div class="bio-subtitle lang-en">THE BEGINNING</div>
 				<div class="bio-subtitle lang-es">LOS COMIENZOS</div>
+				<p class="bio-paragraph lang-en">My passion for cars began when I was little... (etc)</p>
+				<p class="bio-paragraph lang-es">Mi pasión por los autos comenzó desde pequeño... (etc)</p>
 				
-				<p class="bio-paragraph lang-en">
-					My passion for cars began when I was little, when my father would take me in his bus. I started seeing a lot of cars and became interested; today I'm passionate about anything with an internal combustion engine. Soon, I decided to take the plunge and try a go-kart for the first time. I loved it and decided that's what I would do for the rest of my life from that day forward. For me, driving isn't just about speed; it's about discipline, falls, and the drive to improve lap after lap.
-				</p>
-				<p class="bio-paragraph lang-es">
-					Mi pasión por los autos comenzó desde pequeño, cuando mi padre me llevaba en su colectivo. Empecé a ver muchos autos y me interesé; hoy me apasiona cualquier cosa con un motor de combustión interna. Pronto decidí dar el paso y probar un karting por primera vez. Me encantó y decidí que eso es lo que haría por el resto de mi vida desde ese día. Para mí, manejar no es solo velocidad; se trata de disciplina, caídas y el impulso de mejorar vuelta tras vuelta.
-				</p>
-				
-				<div class="bio-subtitle lang-en">CURRENT STATUS</div>
-				<div class="bio-subtitle lang-es">ESTADO ACTUAL</div>
-				
-				<p class="bio-paragraph lang-en">
-					Currently, I'm not competing in any category. But I'm training hard to perfect my technique and improve session after session, preparing to compete in the <strong>"APAK"</strong> category under the <strong>FRAD Metropolitana.</strong>
-				</p>
-				<p class="bio-paragraph lang-es">
-					Actualmente, no estoy compitiendo en ninguna categoría. Pero estoy entrenando duro para perfeccionar mi técnica y mejorar sesión tras sesión, preparándome para competir en la categoría <strong>"APAK"</strong> bajo la <strong>FRAD Metropolitana.</strong>
-				</p>
-
-				<div class="bio-subtitle lang-en">THE FUTURE: 2027</div>
-				<div class="bio-subtitle lang-es">EL FUTURO: 2027</div>
-				
-				<p class="bio-paragraph lang-en">
-					My eyes are set on the <strong>Super A Category for the 2027 season</strong>. This is the next major step in my career, and my training regimen—both physical and on the simulator—is fully focused on being ready for that challenge.
-				</p>
-				<p class="bio-paragraph lang-es">
-					Mi mirada está puesta en la <strong>Categoría Super A para la temporada 2027</strong>. Este es el siguiente gran paso en mi carrera, y mi régimen de entrenamiento —tanto físico como en el simulador— está totalmente enfocado en estar listo para ese desafío.
-				</p>
-
 				<a href="#home" class="btn-router" style="margin-top: 50px;">
 					<span class="lang-en">BACK</span>
 					<span class="lang-es">VOLVER</span>
@@ -466,21 +405,13 @@
 			function toggleTheme() {
 				const body = document.body;
 				body.classList.toggle('light-mode');
-				
 				const btn = document.getElementById('themeBtn');
-				if (body.classList.contains('light-mode')) {
-					btn.innerHTML = "🌙 DARK";
-				} else {
-					btn.innerHTML = "☀️ LIGHT";
-				}
+				btn.innerHTML = body.classList.contains('light-mode') ? "🌙 DARK" : "☀️ LIGHT";
 			}
 
 			function toggleLang() {
-				const body = document.body;
-				body.classList.toggle('es-mode');
-				// No es necesario cambiar el texto del botón de idioma, ya es claro.
+				document.body.classList.toggle('es-mode');
 			}
 		</script>
-
 	</body>
 </html>
