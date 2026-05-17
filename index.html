@@ -7,9 +7,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			/* =========================================
-			   VARIABLES DE COLORES
-			   ========================================= */
+			@media screen and (max-width: 768px) {
+    #hero-header {
+        background: #000 !important;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+    #hero-header::after {
+        display: none !important;
+    }
+}
 			:root {
 				--bg-color: #000000;
 				--text-color: #ffffff;
@@ -264,156 +271,77 @@
 				</div>
 			</div>
 
-			<section class="tt-section">
-<style>
-.tt-section {
-    padding: 60px 5%;
-    background: var(--bg-color);
-    text-align: center;
-    font-family: sans-serif;
-}
-.tt-social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-bottom: 36px;
-}
-.tt-social-icons a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 10px;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    color: var(--text-color);
-    text-decoration: none;
-    transition: all 0.3s;
-}
-.tt-social-icons a:hover {
-    border-color: var(--accent-color);
-    color: var(--accent-color);
-}
-.tt-social-icons svg {
-    width: 22px;
-    height: 22px;
-    fill: currentColor;
-}
-.tt-profile-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-}
-.tt-avatar {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    border: 3px solid var(--accent-color);
-    object-fit: cover;
-    flex-shrink: 0;
-}
-.tt-info {
-    text-align: left;
-}
-.tt-name {
-    font-size: 1.2rem;
-    font-weight: 900;
-    color: var(--text-color);
-    margin: 0 0 2px;
-}
-.tt-handle {
-    font-size: 0.9rem;
-    color: var(--text-color);
-    opacity: 0.5;
-    margin: 0 0 12px;
-}
-.tt-stats {
-    display: flex;
-    gap: 20px;
-}
-.tt-stat strong {
-    display: block;
-    font-size: 1rem;
-    font-weight: 900;
-    color: var(--text-color);
-}
-.tt-stat span {
-    font-size: 0.72rem;
-    color: var(--text-color);
-    opacity: 0.55;
-}
-.tt-follow-btn {
-    display: inline-block;
-    padding: 10px 28px;
-    background: var(--accent-color);
-    color: #fff !important;
-    font-weight: 900;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    transition: 0.3s;
-    flex-shrink: 0;
-}
-.tt-follow-btn:hover {
-    opacity: 0.85;
-    transform: scale(1.04);
-}
-.tt-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-}
-.tt-card {
-    background: var(--card-bg);
-    border-radius: 12px;
-    border: 1px solid var(--card-border);
-    padding: 6px;
-    overflow: hidden;
-}
-.tt-card iframe {
-    width: 100%;
-    height: 520px;
-    border-radius: 8px;
-    border: none;
-    display: block;
-}
+			<div class="tt-grid">
+    <div class="tt-card"><iframe src="https://www.tiktok.com/embed/7638069335839362312" allowfullscreen loading="lazy"></iframe></div>
+    <div class="tt-card tt-extra" style="display:none"><iframe src="https://www.tiktok.com/embed/7611688841996422408" allowfullscreen loading="lazy"></iframe></div>
+    <div class="tt-card tt-extra" style="display:none"><iframe src="https://www.tiktok.com/embed/7608039924364741895" allowfullscreen loading="lazy"></iframe></div>
+    <div class="tt-card tt-extra" style="display:none"><iframe src="https://www.tiktok.com/embed/7604180174090898696" allowfullscreen loading="lazy"></iframe></div>
+    <div class="tt-card tt-extra" style="display:none"><iframe src="https://www.tiktok.com/embed/7603053008015887634" allowfullscreen loading="lazy"></iframe></div>
+    <div class="tt-card tt-extra" style="display:none"><iframe src="https://www.tiktok.com/embed/7601920673308478727" allowfullscreen loading="lazy"></iframe></div>
+    <div class="tt-card tt-extra" style="display:none"><iframe src="https://www.tiktok.com/embed/7597963033742249272" allowfullscreen loading="lazy"></iframe></div>
+    <div class="tt-card tt-extra" style="display:none"><iframe src="https://www.tiktok.com/embed/7593036796968144136" allowfullscreen loading="lazy"></iframe></div>
+    <div class="tt-card tt-extra" style="display:none"><iframe src="https://www.tiktok.com/embed/7584169669569924370" allowfullscreen loading="lazy"></iframe></div>
+    <div class="tt-card tt-extra" style="display:none"><iframe src="https://www.tiktok.com/embed/7575373676825103624" allowfullscreen loading="lazy"></iframe></div>
+    <div class="tt-card tt-extra" style="display:none"><iframe src="https://www.tiktok.com/embed/7574947624684358919" allowfullscreen loading="lazy"></iframe></div>
+    <div class="tt-card tt-extra" style="display:none"><iframe src="https://www.tiktok.com/embed/7574451635900910866" allowfullscreen loading="lazy"></iframe></div>
+</div>
 
-@media (max-width: 900px) {
-    .tt-grid {
-        grid-template-columns: repeat(2, 1fr);
+<div id="tt-toggle-wrap" style="display:none; text-align:center; margin-top:16px;">
+    <button id="tt-toggle-btn" onclick="toggleVideos()" style="
+        background: transparent;
+        border: 2px solid var(--accent-color);
+        color: var(--text-color);
+        padding: 10px 28px;
+        font-weight: 900;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s;
+        letter-spacing: 1px;
+    ">
+        <span class="lang-en">SHOW ALL VIDEOS ▼</span>
+        <span class="lang-es">VER TODOS LOS VIDEOS ▼</span>
+    </button>
+</div>
+
+<script>
+(function() {
+    function isMobile() { return window.innerWidth <= 560; }
+
+    function applyMobileLogic() {
+        const extras = document.querySelectorAll('.tt-extra');
+        const wrap = document.getElementById('tt-toggle-wrap');
+        if (isMobile()) {
+            wrap.style.display = 'block';
+            extras.forEach(el => el.style.display = 'none');
+        } else {
+            wrap.style.display = 'none';
+            extras.forEach(el => el.style.display = 'block');
+        }
     }
-}
-@media (max-width: 560px) {
-    .tt-section {
-        padding: 40px 4%;
+
+    window.toggleVideos = function() {
+        const extras = document.querySelectorAll('.tt-extra');
+        const btn = document.getElementById('tt-toggle-btn');
+        const expanded = extras[0].style.display === 'block';
+        extras.forEach(el => el.style.display = expanded ? 'none' : 'block');
+        const esMode = document.body.classList.contains('es-mode');
+        if (expanded) {
+            btn.innerHTML = esMode
+                ? '<span class="lang-es">VER TODOS LOS VIDEOS ▼</span><span class="lang-en">SHOW ALL VIDEOS ▼</span>'
+                : '<span class="lang-en">SHOW ALL VIDEOS ▼</span><span class="lang-es">VER TODOS LOS VIDEOS ▼</span>';
+        } else {
+            btn.innerHTML = esMode
+                ? '<span class="lang-es">OCULTAR VIDEOS ▲</span><span class="lang-en">HIDE VIDEOS ▲</span>'
+                : '<span class="lang-en">HIDE VIDEOS ▲</span><span class="lang-es">OCULTAR VIDEOS ▲</span>';
+        }
     }
-    .tt-grid {
-        grid-template-columns: 1fr;
-    }
-    .tt-card iframe {
-        height: 560px;
-    }
-    .tt-profile-row {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .tt-info {
-        text-align: center;
-    }
-    .tt-stats {
-        justify-content: center;
-    }
-    .tt-follow-btn {
-        width: 100%;
-        text-align: center;
-    }
-}
-</style>
+
+    applyMobileLogic();
+    window.addEventListener('resize', applyMobileLogic);
+})();
+</script>
 
 <div class="tt-social-icons">
     <a href="https://www.instagram.com/ben.gimenez_ap/" target="_blank" title="Instagram">
